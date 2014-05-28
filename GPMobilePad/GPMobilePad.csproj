@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CFBA9349-85AB-412E-8603-FD8C92EDEF36}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>GPMobilePad</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>GPMobilePad</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchProfiling>True</MtouchProfiling>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>ARMv7</MtouchArch>
+    <MtouchI18n>
+    </MtouchI18n>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>ARMv7</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Developer: AV Malabie (FAAF438JTM)</CodesignKey>
+    <MtouchArch>ARMv7</MtouchArch>
+    <MtouchI18n>
+    </MtouchI18n>
+    <IpaPackageName>
+    </IpaPackageName>
+    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>8A1FF865-36E3-4F06-AC7A-AF6989AA0C69</CodesignProvision>
+    <MtouchExtraArgs>-compiler:clang</MtouchExtraArgs>
+    <MtouchLink>None</MtouchLink>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Developer: AV Malabie (FAAF438JTM)</CodesignKey>
+    <IpaPackageName>
+    </IpaPackageName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <BuildIpa>True</BuildIpa>
+    <CodesignKey>iPhone Distribution: Korbicom (Pty) Ltd (CBV7LEKEN5)</CodesignKey>
+    <MtouchArch>ARMv7</MtouchArch>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>
+    </MtouchI18n>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStoreKorbitec|iPhone' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\AppStoreKorbitec</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
+    <IpaPackageName>
+    </IpaPackageName>
+    <CodesignProvision>3E768505-34DC-40D1-BAE7-C87DA0DB7D54</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DistributionKorbitec|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\DistributionKorbitec</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer: AV Malabie (FAAF438JTM)</CodesignKey>
+    <BuildIpa>true</BuildIpa>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
+    <CodesignProvision>8A1FF865-36E3-4F06-AC7A-AF6989AA0C69</CodesignProvision>
+    <MtouchExtraArgs>--compiler=clang --gsharedvt=false</MtouchExtraArgs>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="MonoTouch.Dialog-1" />
+    <Reference Include="Newtonsoft.Json.MonoTouch">
+      <HintPath>..\..\Library\Newtonsoft.Json.MonoTouch.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Screens\ProvisionDialog.cs" />
+    <Compile Include="Screens\MatterDetail.cs" />
+    <Compile Include="Util\ImageResizer.cs" />
+    <Compile Include="Util\ColorHelper.cs" />
+    <Compile Include="Screens\PostFee.cs" />
+    <Compile Include="Screens\PostNote.cs" />
+    <Compile Include="Data\ReportType.cs" />
+    <Compile Include="Data\MatterNoteDTO.cs" />
+    <Compile Include="Data\GhostRequestDTO.cs" />
+    <Compile Include="Data\FeeDTO.cs" />
+    <Compile Include="Data\MatterDTO.cs" />
+    <Compile Include="Data\MobileTariffCodeDTO.cs" />
+    <Compile Include="Data\AppDTO.cs" />
+    <Compile Include="Data\PlatformDTO.cs" />
+    <Compile Include="Data\CompanyDTO.cs" />
+    <Compile Include="Data\UserDTO.cs" />
+    <Compile Include="Data\MatterSearchResultDTO.cs" />
+    <Compile Include="Data\WebServiceResponseDTO.cs" />
+    <Compile Include="Data\Reports\Bank.cs" />
+    <Compile Include="Data\Reports\Branch.cs" />
+    <Compile Include="Data\Reports\BranchTotals.cs" />
+    <Compile Include="Data\Reports\BusinessStatus.cs" />
+    <Compile Include="Data\Reports\FeeTargetProgressReport.cs" />
+    <Compile Include="Data\Reports\FinancialStatusReport.cs" />
+    <Compile Include="Data\Reports\MatterActivity.cs" />
+    <Compile Include="Data\Reports\MatterAnalysisByOwnerReport.cs" />
+    <Compile Include="Data\Reports\MatterBalances.cs" />
+    <Compile Include="Data\Reports\Owner.cs" />
+    <Compile Include="Data\Reports\PracticeTotals.cs" />
+    <Compile Include="Data\Reports\RecordedMTD.cs" />
+    <Compile Include="Data\Reports\TrustStatus.cs" />
+    <Compile Include="Data\Reports\RecordedYTD.cs" />
+    <Compile Include="Data\GetReportResponseDTO.cs" />
+    <Compile Include="Data\Reports\Branches.cs" />
+    <Compile Include="Data\FeeTargetFix\InvoicedMTD.cs" />
+    <Compile Include="ReportControllers\FeeTargetProgressController.cs" />
+    <Compile Include="ReportControllers\FeeTargetBranchOwnerController.cs" />
+    <Compile Include="ReportControllers\MatterAnalysisController.cs" />
+    <Compile Include="ReportControllers\MatterAnalysisBranchController.cs" />
+    <Compile Include="ReportControllers\MatterAnalysisBranchOwnerController.cs" />
+    <Compile Include="ReportControllers\FinancialStatusByBranchController.cs" />
+    <Compile Include="Util\FinanceElement.cs" />
+    <Compile Include="Util\NumberElement.cs" />
+    <Compile Include="Util\TitleElement.cs" />
+    <Compile Include="Util\StringsElement.cs" />
+    <Compile Include="Util\Tools.cs" />
+    <Compile Include="Util\DataUtil.cs" />
+    <Compile Include="Util\UIViewBordered.cs" />
+    <Compile Include="Util\PickerDataModel.cs" />
+    <Compile Include="Util\BigFinanceElement.cs" />
+    <Compile Include="ReportControllers\FeeTargetProgressBranchController.cs" />
+    <Compile Include="Util\ReportsDataSource.cs" />
+    <Compile Include="ReportControllers\ReportSelectorController.cs" />
+    <Compile Include="Util\UIDecimalField.cs" />
+    <Compile Include="Util\LoadingView.cs" />
+    <Compile Include="Util\CalendarMonthView.cs" />
+    <Compile Include="Util\IPagedViewDataSource.cs" />
+    <Compile Include="Screens\PagedViewController.cs" />
+    <Compile Include="Screens\DummyDialog.cs" />
+    <Compile Include="Util\GPDatePicker.cs" />
+    <Compile Include="Util\IDateInterface.cs" />
+    <Compile Include="Util\IPostingComplete.cs" />
+    <Compile Include="Screens\SplitController.cs" />
+    <Compile Include="Util\LoadingOverlay.cs" />
+    <Compile Include="Util\NoOverlapTableViewCell.cs" />
+    <Compile Include="Screens\Finder.cs" />
+    <Compile Include="Util\DeviceTypeUtil.cs" />
+    <Compile Include="Screens\LaunchSplash.cs" />
+    <Compile Include="Util\Stripper.cs" />
+    <Compile Include="Util\CustomImageStringElement.cs" />
+    <Compile Include="ReportControllers\BohaPageViewController.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Screens\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\179-notepad.png" />
+    <Content Include="Images\16-line-chart.png" />
+    <Content Include="Images\249-piechart.png" />
+    <Content Include="Images\253-person.png" />
+    <Content Include="Images\258-checkmark.png" />
+    <Content Include="Images\117-todo.png" />
+    <Content Include="Images\Default.png" />
+    <Content Include="Images\logo_29.png" />
+    <Content Include="Images\logo2_114.png" />
+    <Content Include="Images\logo_114.png" />
+    <Content Include="Images\logo_57.png" />
+    <Content Include="Images\logo_58.png" />
+    <Content Include="Images\logo_72.png" />
+    <Content Include="Images\logo2_29.png" />
+    <Content Include="Images\logo2_57.png" />
+    <Content Include="Images\logo2_58.png" />
+    <Content Include="Images\logo2_72.png" />
+    <Content Include="Images\269-happyface.png" />
+    <Content Include="Images\folder3d_small.png" />
+    <Content Include="Images\iphone.png" />
+    <Content Include="Images\matter.png" />
+    <Content Include="Images\launch_1024X748.png" />
+    <Content Include="Images\launch_768X1004.png" />
+    <Content Include="Images\launch_land.png" />
+    <Content Include="Images\launch_small.png" />
+    <Content Include="Images\closebox.png" />
+    <Content Include="Images\closebox_pressed.png" />
+    <Content Include="Images\book.jpg" />
+    <Content Include="Images\report.jpg" />
+    <Content Include="Images\reports.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\Default-Landscape.png" />
+    <BundleResource Include="Resources\Icon-72%402x.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-50%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-50.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+    <BundleResource Include="Resources\Default-Landscape%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+</Project>

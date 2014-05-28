@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3A11F43F-CB81-4377-A98E-EF61AC6C86FC}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>GhostAdmin</RootNamespace>
+    <AssemblyName>GhostAdmin</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchProfiling>True</MtouchProfiling>
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchProfiling>True</MtouchProfiling>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>
+    </MtouchI18n>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Distribution</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStoreKorbitec|iPhone' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\AppStoreKorbitec</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DistributionKorbitec|iPhone' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\DistributionKorbitec</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="Newtonsoft.Json.MonoTouch">
+      <HintPath>..\..\Library\Newtonsoft.Json.MonoTouch.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="MonoTouch.Dialog-1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Data\CompanyDTO.cs" />
+    <Compile Include="Data\UserDTO.cs" />
+    <Compile Include="Data\AppDTO.cs" />
+    <Compile Include="Data\PlatformDTO.cs" />
+    <Compile Include="Data\ActivityLogDTO.cs" />
+    <Compile Include="Data\ActivityTypeDTO.cs" />
+    <Compile Include="Data\ConsoleRequestDTO.cs" />
+    <Compile Include="Data\ConsoleResponseDTO.cs" />
+    <Compile Include="Util\TalkToServer.cs" />
+    <Compile Include="Controllers\CompanyListController.cs" />
+    <Compile Include="Controllers\CompanyListController.designer.cs">
+      <DependentUpon>CompanyListController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\UserListController.cs" />
+    <Compile Include="Controllers\UserListController.designer.cs">
+      <DependentUpon>UserListController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Tools.cs" />
+    <Compile Include="Util\TDBadgedCell.cs" />
+    <Compile Include="Controllers\TestTableController.designer.cs">
+      <DependentUpon>SummaryController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\TableSource.cs" />
+    <Compile Include="Util\TableItemGroup.cs" />
+    <Compile Include="Data\SummaryItem.cs" />
+    <Compile Include="Data\SummaryDTO.cs" />
+    <Compile Include="Controllers\SummaryController.cs" />
+    <Compile Include="Controllers\LogsController.cs" />
+    <Compile Include="Controllers\LogsController.designer.cs">
+      <DependentUpon>LogsController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PlatformSummaryDTO.cs" />
+    <Compile Include="Controllers\PlatformController.cs" />
+    <Compile Include="Util\SummaryItemGroup.cs" />
+    <Compile Include="Util\PlatformTableSource.cs" />
+    <Compile Include="Util\ActivityIndicatorAlertView.cs" />
+    <Compile Include="Controllers\PlatformUserController.cs" />
+    <Compile Include="Controllers\PlatformUserController.designer.cs">
+      <DependentUpon>PlatformUserController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Reports\FeeTargetReportController.cs" />
+    <Compile Include="Controllers\Reports\FeeTargetReportController.designer.cs">
+      <DependentUpon>FeeTargetReportController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Reports\FinancialAnalysisReportController.cs" />
+    <Compile Include="Controllers\Reports\FinancialAnalysisReportController.designer.cs">
+      <DependentUpon>FinancialAnalysisReportController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Reports\MatterAnalysisReportController.cs" />
+    <Compile Include="Controllers\Reports\MatterAnalysisReportController.designer.cs">
+      <DependentUpon>MatterAnalysisReportController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Reports\ReportPagingController.cs" />
+    <Compile Include="Controllers\Reports\ReportPagingController.designer.cs">
+      <DependentUpon>ReportPagingController.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Controllers\CompanyListController.xib" />
+    <InterfaceDefinition Include="Controllers\UserListController.xib" />
+    <InterfaceDefinition Include="Controllers\LogsController.xib" />
+    <InterfaceDefinition Include="Controllers\PlatformUserController.xib" />
+    <InterfaceDefinition Include="Controllers\Reports\FeeTargetReportController.xib" />
+    <InterfaceDefinition Include="Controllers\Reports\FinancialAnalysisReportController.xib" />
+    <InterfaceDefinition Include="Controllers\Reports\MatterAnalysisReportController.xib" />
+    <InterfaceDefinition Include="Controllers\Reports\ReportPagingController.xib" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Util\" />
+    <Folder Include="Controllers\Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\179-notepad.png" />
+    <Content Include="Images\16-line-chart.png" />
+    <Content Include="Images\249-piechart.png" />
+    <Content Include="Images\253-person.png" />
+    <Content Include="Images\258-checkmark.png" />
+    <Content Include="Images\117-todo.png" />
+    <Content Include="Images\logo_29.png" />
+    <Content Include="Images\Default.png" />
+    <Content Include="Default.png" />
+    <Content Include="Default%402x.png" />
+    <Content Include="Images\32-iphone.png" />
+    <Content Include="Images\android48-round.png" />
+    <Content Include="Images\apple48-blue.png" />
+    <Content Include="Images\blackberry.png" />
+    <Content Include="Images\windows.png" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{63D42852-7324-4838-944E-CEBDFF87582A}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CarameliPad</RootNamespace>
+    <AssemblyName>CarameliPad</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchProfiling>True</MtouchProfiling>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>ARMv7</MtouchArch>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchSdkVersion>5.1</MtouchSdkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchProfiling>True</MtouchProfiling>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchArch>ARMv7</MtouchArch>
+    <MtouchI18n>
+    </MtouchI18n>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStoreKorbitec|iPhone' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\AppStoreKorbitec</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DistributionKorbitec|iPhone' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\DistributionKorbitec</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="MonoTouch.Dialog-1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Images\vodacom.jpg" />
+    <None Include="Images\xx_cellc.jpg" />
+    <None Include="Images\xx_mtn.jpg" />
+    <None Include="Images\1.jpg" />
+    <None Include="Images\2.jpg" />
+    <None Include="Images\3.jpg" />
+    <None Include="Images\4.jpg" />
+    <None Include="Images\5.jpg" />
+    <None Include="Images\6.jpg" />
+    <None Include="Images\7.jpg" />
+    <None Include="Images\8.jpg" />
+    <None Include="Images\9.jpg" />
+    <None Include="Images\10.jpg" />
+    <None Include="Images\11.jpg" />
+    <None Include="Images\12.jpg" />
+    <None Include="Images\13.jpg" />
+    <None Include="Images\14.jpg" />
+    <None Include="Images\15.jpg" />
+    <None Include="Images\16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="RootViewController.cs" />
+    <Compile Include="RootViewController.designer.cs">
+      <DependentUpon>RootViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailViewController.cs" />
+    <Compile Include="DetailViewController.designer.cs">
+      <DependentUpon>DetailViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\RegistrationController.designer.cs">
+      <DependentUpon>RegistrationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DataEntry\GPSMapController.cs" />
+    <Compile Include="Controllers\DataEntry\GPSMapController.designer.cs">
+      <DependentUpon>GPSMapController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DataEntry\OwnerAndAddressDataController.cs" />
+    <Compile Include="Controllers\DataEntry\OwnerAndAddressDataController.designer.cs">
+      <DependentUpon>OwnerAndAddressDataController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DataEntry\PropertyAttributesDataController.cs" />
+    <Compile Include="Controllers\DataEntry\PropertyAttributesDataController.designer.cs">
+      <DependentUpon>PropertyAttributesDataController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DataEntry\PhotoGalleryController.cs" />
+    <Compile Include="Controllers\DataEntry\PhotoGalleryController.designer.cs">
+      <DependentUpon>PhotoGalleryController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Owner.cs" />
+    <Compile Include="Data\Property.cs" />
+    <Compile Include="Controllers\DataEntry\OwnerAddressLandscapeController.cs" />
+    <Compile Include="Controllers\DataEntry\OwnerAddressLandscapeController.designer.cs">
+      <DependentUpon>OwnerAddressLandscapeController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DataEntry\OwnerAddressPortraitController.cs" />
+    <Compile Include="Controllers\DataEntry\OwnerAddressPortraitController.designer.cs">
+      <DependentUpon>OwnerAddressPortraitController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagingController.cs" />
+    <Compile Include="PagingController.designer.cs">
+      <DependentUpon>PagingController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\SplitViewController.cs" />
+    <Compile Include="Controllers\Splitter.cs" />
+    <Compile Include="Controllers\Splitter.designer.cs">
+      <DependentUpon>Splitter.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="RootViewController.xib" />
+    <InterfaceDefinition Include="DetailViewController.xib" />
+    <InterfaceDefinition Include="Controllers\RegistrationController.xib" />
+    <InterfaceDefinition Include="Controllers\DataEntry\GPSMapController.xib" />
+    <InterfaceDefinition Include="Controllers\DataEntry\OwnerAndAddressDataController.xib" />
+    <InterfaceDefinition Include="Controllers\DataEntry\PropertyAttributesDataController.xib" />
+    <InterfaceDefinition Include="Controllers\DataEntry\PhotoGalleryController.xib" />
+    <InterfaceDefinition Include="Controllers\DataEntry\OwnerAddressLandscapeController.xib" />
+    <InterfaceDefinition Include="Controllers\DataEntry\OwnerAddressPortraitController.xib" />
+    <InterfaceDefinition Include="Controllers\Splitter.xib" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Util\" />
+    <Folder Include="Data\" />
+    <Folder Include="Controllers\DataEntry\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\01-refresh.png" />
+    <Content Include="Images\01-refresh%402x.png" />
+    <Content Include="Images\02-redo.png" />
+    <Content Include="Images\02-redo%402x.png" />
+    <Content Include="Images\04-squiggle.png" />
+    <Content Include="Images\04-squiggle%402x.png" />
+    <Content Include="Images\06-magnify.png" />
+    <Content Include="Images\06-magnify%402x.png" />
+    <Content Include="Images\07-map-marker.png" />
+    <Content Include="Images\07-map-marker%402x.png" />
+    <Content Include="Images\08-chat.png" />
+    <Content Include="Images\08-chat%402x.png" />
+    <Content Include="Images\09-chat-2.png" />
+    <Content Include="Images\09-chat-2%402x.png" />
+    <Content Include="Images\thumbnail.png" />
+    <Content Include="Images\xx_8ta.png" />
+    <Content Include="Images\1.png" />
+    <Content Include="Images\2.png" />
+    <Content Include="Images\99.png" />
+  </ItemGroup>
+</Project>
