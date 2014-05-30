@@ -142,35 +142,6 @@
     <Compile Include="Util\ColorHelper.cs" />
     <Compile Include="Screens\PostFee.cs" />
     <Compile Include="Screens\PostNote.cs" />
-    <Compile Include="Data\ReportType.cs" />
-    <Compile Include="Data\MatterNoteDTO.cs" />
-    <Compile Include="Data\GhostRequestDTO.cs" />
-    <Compile Include="Data\FeeDTO.cs" />
-    <Compile Include="Data\MatterDTO.cs" />
-    <Compile Include="Data\MobileTariffCodeDTO.cs" />
-    <Compile Include="Data\AppDTO.cs" />
-    <Compile Include="Data\PlatformDTO.cs" />
-    <Compile Include="Data\CompanyDTO.cs" />
-    <Compile Include="Data\UserDTO.cs" />
-    <Compile Include="Data\MatterSearchResultDTO.cs" />
-    <Compile Include="Data\WebServiceResponseDTO.cs" />
-    <Compile Include="Data\Reports\Bank.cs" />
-    <Compile Include="Data\Reports\Branch.cs" />
-    <Compile Include="Data\Reports\BranchTotals.cs" />
-    <Compile Include="Data\Reports\BusinessStatus.cs" />
-    <Compile Include="Data\Reports\FeeTargetProgressReport.cs" />
-    <Compile Include="Data\Reports\FinancialStatusReport.cs" />
-    <Compile Include="Data\Reports\MatterActivity.cs" />
-    <Compile Include="Data\Reports\MatterAnalysisByOwnerReport.cs" />
-    <Compile Include="Data\Reports\MatterBalances.cs" />
-    <Compile Include="Data\Reports\Owner.cs" />
-    <Compile Include="Data\Reports\PracticeTotals.cs" />
-    <Compile Include="Data\Reports\RecordedMTD.cs" />
-    <Compile Include="Data\Reports\TrustStatus.cs" />
-    <Compile Include="Data\Reports\RecordedYTD.cs" />
-    <Compile Include="Data\GetReportResponseDTO.cs" />
-    <Compile Include="Data\Reports\Branches.cs" />
-    <Compile Include="Data\FeeTargetFix\InvoicedMTD.cs" />
     <Compile Include="ReportControllers\FeeTargetProgressController.cs" />
     <Compile Include="ReportControllers\FeeTargetBranchOwnerController.cs" />
     <Compile Include="ReportControllers\MatterAnalysisController.cs" />
@@ -208,6 +179,7 @@
     <Compile Include="Util\CustomImageStringElement.cs" />
     <Compile Include="ReportControllers\BohaPageViewController.cs" />
   </ItemGroup>
+  <Import Project="..\GhostPracticeLibrary\GhostPracticeLibrary.projitems" Label="Shared" Condition="Exists('..\GhostPracticeLibrary\GhostPracticeLibrary.projitems')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Screens\" />

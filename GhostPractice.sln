@@ -7,13 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GhostAdmin", "GhostAdmin\Gh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPMobilePad", "GPMobilePad\GPMobilePad.csproj", "{CFBA9349-85AB-412E-8603-FD8C92EDEF36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GolfKids", "GolfKids\GolfKids.csproj", "{4CDD276F-6B79-4211-B918-A74268FC9ADF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarameliPad", "CarameliPad\CarameliPad.csproj", "{63D42852-7324-4838-944E-CEBDFF87582A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesterUI", "TesterUI\TesterUI.csproj", "{247BEDA3-7DFB-4919-9850-D10185A9A8D8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPMobilePad2", "GPMobilePad2\GPMobilePad2.csproj", "{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GhostPracticeLibrary", "GhostPracticeLibrary\GhostPracticeLibrary.shproj", "{CE8B2D02-5F4B-4732-8307-3D6F8514AA73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,24 +22,6 @@ Global
 		DistributionKorbitec|iPhone = DistributionKorbitec|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.AppStore|iPhone.Build.0 = AppStore|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.AppStoreKorbitec|iPhone.ActiveCfg = Release|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.AppStoreKorbitec|iPhone.Build.0 = Release|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Debug|iPhone.Build.0 = Debug|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Distribution|iPhone.ActiveCfg = Release|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Distribution|iPhone.Build.0 = Release|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.DistributionKorbitec|iPhone.ActiveCfg = Release|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.DistributionKorbitec|iPhone.Build.0 = Release|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Release|iPhone.ActiveCfg = Release|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Release|iPhone.Build.0 = Release|iPhone
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{247BEDA3-7DFB-4919-9850-D10185A9A8D8}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{3A11F43F-CB81-4377-A98E-EF61AC6C86FC}.AppStoreKorbitec|iPhone.ActiveCfg = AppStoreKorbitec|iPhone
 		{3A11F43F-CB81-4377-A98E-EF61AC6C86FC}.AppStoreKorbitec|iPhone.Build.0 = AppStoreKorbitec|iPhone
 		{3A11F43F-CB81-4377-A98E-EF61AC6C86FC}.Debug|iPhone.ActiveCfg = Debug|iPhone
@@ -60,60 +36,6 @@ Global
 		{3A11F43F-CB81-4377-A98E-EF61AC6C86FC}.Release|iPhone.Build.0 = Release|iPhone
 		{3A11F43F-CB81-4377-A98E-EF61AC6C86FC}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{3A11F43F-CB81-4377-A98E-EF61AC6C86FC}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.AppStore|iPhone.Build.0 = AppStore|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.AppStoreKorbitec|iPhone.ActiveCfg = Release|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.AppStoreKorbitec|iPhone.Build.0 = Release|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Debug|iPhone.Build.0 = Debug|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Distribution|iPhone.ActiveCfg = Release|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Distribution|iPhone.Build.0 = Release|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.DistributionKorbitec|iPhone.ActiveCfg = Release|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.DistributionKorbitec|iPhone.Build.0 = Release|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Release|iPhone.ActiveCfg = Release|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Release|iPhone.Build.0 = Release|iPhone
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{3A4F6E29-774F-4BF0-AEC6-5D9F3B11D531}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.AppStore|iPhone.Build.0 = AppStore|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.AppStoreKorbitec|iPhone.ActiveCfg = AppStoreKorbitec|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.AppStoreKorbitec|iPhone.Build.0 = AppStoreKorbitec|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Debug|iPhone.Build.0 = Debug|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Distribution|iPhone.ActiveCfg = Debug|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Distribution|iPhone.Build.0 = Debug|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.DistributionKorbitec|iPhone.ActiveCfg = DistributionKorbitec|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.DistributionKorbitec|iPhone.Build.0 = DistributionKorbitec|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Release|iPhone.ActiveCfg = Release|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Release|iPhone.Build.0 = Release|iPhone
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{4CDD276F-6B79-4211-B918-A74268FC9ADF}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Ad-Hoc|iPhone.ActiveCfg = Debug|iPhoneSimulator
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Ad-Hoc|iPhone.Build.0 = Debug|iPhoneSimulator
-		{63D42852-7324-4838-944E-CEBDFF87582A}.AppStore|iPhone.ActiveCfg = Debug|iPhoneSimulator
-		{63D42852-7324-4838-944E-CEBDFF87582A}.AppStore|iPhone.Build.0 = Debug|iPhoneSimulator
-		{63D42852-7324-4838-944E-CEBDFF87582A}.AppStoreKorbitec|iPhone.ActiveCfg = AppStoreKorbitec|iPhone
-		{63D42852-7324-4838-944E-CEBDFF87582A}.AppStoreKorbitec|iPhone.Build.0 = AppStoreKorbitec|iPhone
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Debug|iPhone.Build.0 = Debug|iPhone
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Distribution|iPhone.ActiveCfg = Release|iPhone
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Distribution|iPhone.Build.0 = Release|iPhone
-		{63D42852-7324-4838-944E-CEBDFF87582A}.DistributionKorbitec|iPhone.ActiveCfg = DistributionKorbitec|iPhone
-		{63D42852-7324-4838-944E-CEBDFF87582A}.DistributionKorbitec|iPhone.Build.0 = DistributionKorbitec|iPhone
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Release|iPhone.ActiveCfg = Release|iPhone
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Release|iPhone.Build.0 = Release|iPhone
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{63D42852-7324-4838-944E-CEBDFF87582A}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{AD1E015E-0119-438B-BF7D-AF6B92D0AD2E}.AppStoreKorbitec|iPhone.ActiveCfg = AppStoreKorbitec|iPhone
 		{AD1E015E-0119-438B-BF7D-AF6B92D0AD2E}.AppStoreKorbitec|iPhone.Build.0 = AppStoreKorbitec|iPhone
 		{AD1E015E-0119-438B-BF7D-AF6B92D0AD2E}.Debug|iPhone.ActiveCfg = Debug|iPhone

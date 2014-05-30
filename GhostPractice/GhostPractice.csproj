@@ -26,7 +26,7 @@
     <MtouchArch>ARMv7</MtouchArch>
     <MtouchI18n>
     </MtouchI18n>
-    <MtouchSdkVersion>7.0</MtouchSdkVersion>
+    <MtouchUseThumb>true</MtouchUseThumb>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -132,109 +132,36 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Data\ReportType.cs" />
-    <Compile Include="Util\CalculateFee.cs" />
-    <Compile Include="Util\DataUtil.cs" />
     <Compile Include="Controllers\MatterFindController.cs" />
     <Compile Include="Controllers\MatterFindController.designer.cs">
       <DependentUpon>MatterFindController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Util\Dummies.cs" />
-    <Compile Include="Util\PickerDataModel.cs" />
-    <Compile Include="Data\MatterNoteDTO.cs" />
-    <Compile Include="Data\GhostRequestDTO.cs" />
-    <Compile Include="Data\FeeDTO.cs" />
-    <Compile Include="Data\MatterDTO.cs" />
-    <Compile Include="Data\MobileTariffCodeDTO.cs" />
-    <Compile Include="Data\AppDTO.cs" />
-    <Compile Include="Data\PlatformDTO.cs" />
-    <Compile Include="Data\CompanyDTO.cs" />
-    <Compile Include="Data\UserDTO.cs" />
-    <Compile Include="Data\MatterSearchResultDTO.cs" />
-    <Compile Include="Data\WebServiceResponseDTO.cs" />
-    <Compile Include="Util\Tools.cs" />
-    <Compile Include="LoginController.cs" />
-    <Compile Include="LoginController.designer.cs">
-      <DependentUpon>LoginController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Util\LocationService.cs" />
-    <Compile Include="Data\Reports\Bank.cs" />
-    <Compile Include="Data\Reports\Branch.cs" />
-    <Compile Include="Data\Reports\BranchTotals.cs" />
-    <Compile Include="Data\Reports\BusinessStatus.cs" />
-    <Compile Include="Data\Reports\FeeTargetProgressReport.cs" />
-    <Compile Include="Data\Reports\FinancialStatusReport.cs" />
-    <Compile Include="Data\Reports\MatterActivity.cs" />
-    <Compile Include="Data\Reports\MatterAnalysisByOwnerReport.cs" />
-    <Compile Include="Data\Reports\MatterBalances.cs" />
-    <Compile Include="Data\Reports\Owner.cs" />
-    <Compile Include="Data\Reports\PracticeTotals.cs" />
-    <Compile Include="Data\Reports\RecordedMTD.cs" />
-    <Compile Include="Data\Reports\TrustStatus.cs" />
-    <Compile Include="Data\Reports\RecordedYTD.cs" />
-    <Compile Include="Data\GetReportResponseDTO.cs" />
-    <Compile Include="Util\GlassButton.cs" />
-    <Compile Include="Util\ImageLoader.cs" />
-    <Compile Include="Util\LRUCache.cs" />
-    <Compile Include="Util\Graphics.cs" />
-    <Compile Include="Util\UIViewBordered.cs" />
-    <Compile Include="Util\ActivityIndicator.cs" />
-    <Compile Include="Util\LoadingAlertView.cs" />
-    <Compile Include="Util\TDBadgedCell.cs" />
-    <Compile Include="Util\BranchHelper.cs" />
-    <Compile Include="Util\Zipper.cs" />
-    <Compile Include="Util\GenericTDObject.cs" />
-    <Compile Include="Util\GenericTDGroup.cs" />
-    <Compile Include="Util\GenericTDSource.cs" />
-    <Compile Include="Util\Comms.cs" />
-    <Compile Include="Util\RightAlignedEntryElement.cs" />
     <Compile Include="Controllers\ReportControllers\FeeTargetProgressController.cs" />
     <Compile Include="Controllers\ReportControllers\FeeTargetBranchOwnerController.cs" />
     <Compile Include="Controllers\ReportControllers\MatterAnalysisController.cs" />
     <Compile Include="Controllers\ReportControllers\MatterAnalysisBranchController.cs" />
     <Compile Include="Controllers\ReportControllers\MatterAnalysisBranchOwnerController.cs" />
     <Compile Include="Controllers\ReportControllers\FinancialStatusByBranchController.cs" />
-    <Compile Include="Util\MoneyRow.cs" />
-    <Compile Include="Util\MoneyElement.cs" />
-    <Compile Include="Util\FinanceElement.cs" />
-    <Compile Include="Util\ColorHelper.cs" />
-    <Compile Include="Util\NumberElement.cs" />
     <Compile Include="Controllers\MatterDetailsDialog.cs" />
     <Compile Include="Controllers\ReportControllers\ReportsCoordinatorDialog.cs" />
-    <Compile Include="Util\TitleElement.cs" />
-    <Compile Include="Util\BigFinanceElement.cs" />
     <Compile Include="Controllers\PostFeeDialog.cs" />
-    <Compile Include="Util\ButtonElement.cs" />
-    <Compile Include="Util\StringsElement.cs" />
-    <Compile Include="Util\MultiEntryElement.cs" />
     <Compile Include="Controllers\PostNoteDialog.cs" />
     <Compile Include="Controllers\ReportControllers\PagesConductor.cs" />
     <Compile Include="Controllers\ReportControllers\PagesConductor.designer.cs">
       <DependentUpon>PagesConductor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Util\BusyModalScreen.cs" />
-    <Compile Include="Data\Reports\Branches.cs" />
-    <Compile Include="Data\FeeTargetFix\InvoicedMTD.cs" />
     <Compile Include="Controllers\FeeEarnerListController.cs" />
     <Compile Include="Controllers\FeeEarnerListController.designer.cs">
       <DependentUpon>FeeEarnerListController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\Reports\MobileUser.cs" />
-    <Compile Include="Data\TaskDTO.cs" />
     <Compile Include="Controllers\FeeEarnerTaskController.cs" />
     <Compile Include="Controllers\FeeEarnerTaskController.designer.cs">
       <DependentUpon>FeeEarnerTaskController.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ReportControllers\ProvisioningDialog.cs" />
     <Compile Include="Controllers\Finder.cs" />
-    <Compile Include="Util\CustomImageStringElement.cs" />
-    <Compile Include="Util\Stripper.cs" />
-    <Compile Include="Util\IPostingComplete.cs" />
-    <Compile Include="Util\IDateInterface.cs" />
     <Compile Include="Controllers\ReportControllers\ReportSelectorController.cs" />
     <Compile Include="Controllers\ReportControllers\PagedViewController.cs" />
-    <Compile Include="Util\ReportsDataSource.cs" />
-    <Compile Include="Util\IPagedViewDataSource.cs" />
     <Compile Include="Controllers\ReportControllers\FeeTargetProgressBranchController.cs" />
     <Compile Include="Controllers\ReportControllers\PagerTestController.cs" />
     <Compile Include="Controllers\ReportControllers\PagerTestCell.cs" />
@@ -243,7 +170,6 @@
     <Compile Include="Controllers\ReportControllers\PageConductor2.designer.cs">
       <DependentUpon>PageConductor2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Util\Reachability.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Controllers\MatterFindController.xib" />
@@ -251,15 +177,12 @@
     <InterfaceDefinition Include="Controllers\FeeEarnerListController.xib" />
     <InterfaceDefinition Include="Controllers\FeeEarnerTaskController.xib" />
   </ItemGroup>
+  <Import Project="..\GhostPracticeLibrary\GhostPracticeLibrary.projitems" Label="Shared" Condition="Exists('..\GhostPracticeLibrary\GhostPracticeLibrary.projitems')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Util\" />
     <Folder Include="Controllers\" />
     <Folder Include="Images\" />
-    <Folder Include="Data\Reports\" />
     <Folder Include="Controllers\ReportControllers\" />
-    <Folder Include="Data\FeeTargetFix\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\179-notepad.png" />
@@ -269,18 +192,8 @@
     <Content Include="Images\258-checkmark.png" />
     <Content Include="Images\117-todo.png" />
     <Content Include="Images\Default.png" />
-    <Content Include="Images\logo_29.png" />
-    <Content Include="Images\logo2_114.png" />
-    <Content Include="Images\logo_114.png" />
     <Content Include="Default.png" />
     <Content Include="Default%402x.png" />
-    <Content Include="Images\logo_57.png" />
-    <Content Include="Images\logo_58.png" />
-    <Content Include="Images\logo_72.png" />
-    <Content Include="Images\logo2_29.png" />
-    <Content Include="Images\logo2_57.png" />
-    <Content Include="Images\logo2_58.png" />
-    <Content Include="Images\logo2_72.png" />
     <Content Include="Images\269-happyface.png" />
     <Content Include="Images\folder3d_small.png" />
     <Content Include="Images\iphone.png" />
@@ -289,5 +202,23 @@
     <Content Include="Images\user_library.png" />
     <Content Include="Images\user_real_person.png" />
     <Content Include="Images\launch_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Images\logo_29.png" />
+    <BundleResource Include="Images\logo_57.png" />
+    <BundleResource Include="Images\logo_58.png" />
+    <BundleResource Include="Images\logo_60.png" />
+    <BundleResource Include="Images\logo_72.png" />
+    <BundleResource Include="Images\logo_76.png" />
+    <BundleResource Include="Images\logo_114.png" />
+    <BundleResource Include="Images\logo_120.png" />
+    <BundleResource Include="Images\logo_144.png" />
+    <BundleResource Include="Images\logo_152.png" />
+    <BundleResource Include="Images\settings_29.png" />
+    <BundleResource Include="Images\settings_40.png" />
+    <BundleResource Include="Images\settings_50.png" />
+    <BundleResource Include="Images\settings_58.png" />
+    <BundleResource Include="Images\settings_80.png" />
+    <BundleResource Include="Images\settings_100.png" />
   </ItemGroup>
 </Project>

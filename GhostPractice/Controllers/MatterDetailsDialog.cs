@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Web;
 using MonoTouch.Dialog;
+using GhostPracticeLibrary;
 
 namespace GhostPractice
 {
@@ -34,7 +35,7 @@ namespace GhostPractice
 		public MatterDetailsDialog (MatterSearchResultDTO searchResult) : base (UITableViewStyle.Grouped, null)
 		{	
 			this.searchResult = searchResult;
-			this.NavigationItem.LeftBarButtonItem = new UIBarButtonItem ("Finder", UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
+			this.NavigationItem.LeftBarButtonItem = new UIBarButtonItem (S.GetText (S.SEARCH), UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
 				NavigationController.PopViewControllerAnimated (true);
 			});
 			this.NavigationItem.RightBarButtonItem = new UIBarButtonItem ("Reports", UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
@@ -91,20 +92,19 @@ namespace GhostPractice
 			//
 			var sec2 = new Section ("");
 			if (matter == null) {
-				busBal = new FinanceElement ("Business Balance:", 0.00);
-				currBal = new FinanceElement ("Current Balance:", 0.00);
-				busBal = new FinanceElement ("Business Balance:", 0.00);
-				trustBal = new FinanceElement ("Trust Balance:", 0.00);
-				reserveTrust = new FinanceElement ("Reserve Trust:", 0.00);
+				busBal = new FinanceElement (S.GetText (S.BUSINESS_BALANCE) + ":", 0.00);
+				currBal = new FinanceElement (S.GetText (S.CURRENT_BALANCE) + ":", 0.00);
+				trustBal = new FinanceElement (S.GetText (S.TRUST_BALANCE) + ":", 0.00);
+				reserveTrust = new FinanceElement (S.GetText (S.RESERVE_TRUST) + ":", 0.00);
 				unbilled = new FinanceElement ("Unbilled Balance:", 0.00);
 				pending = new FinanceElement ("Pending Disbursements:", 0.00);
 				investTrust = new FinanceElement ("Investment Trust:", 0.00);
 			} else {
-				busBal = new FinanceElement ("Business Balance:", matter.businessBalance);
-				currBal = new FinanceElement ("Current Balance:", matter.currentBalance);
+				busBal = new FinanceElement (S.GetText (S.BUSINESS_BALANCE) + ":", matter.businessBalance);
+				currBal = new FinanceElement (S.GetText (S.CURRENT_BALANCE), matter.currentBalance);
 				unbilled = new FinanceElement ("Unbilled Balance:", matter.unbilledBalance);
-				trustBal = new FinanceElement ("Trust Balance:", matter.trustBalance);
-				reserveTrust = new FinanceElement ("Reserve Trust:", matter.reserveTrust);
+				trustBal = new FinanceElement (S.GetText (S.TRUST_BALANCE), matter.trustBalance);
+				reserveTrust = new FinanceElement (S.GetText (S.RESERVE_TRUST), matter.reserveTrust);
 				pending = new FinanceElement (
 					"Pending Disbursements:",
 					matter.pendingDisbursementBalance

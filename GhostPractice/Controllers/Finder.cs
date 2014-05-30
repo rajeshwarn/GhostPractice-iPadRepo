@@ -12,6 +12,7 @@ using MonoTouch.Dialog;
 using System.Web;
 using System.Globalization;
 using GhostPractice;
+using GhostPracticeLibrary;
 
 namespace GhostPractice
 {
@@ -33,7 +34,7 @@ namespace GhostPractice
 
 		public void BuildInterface ()
 		{
-			Root = new RootElement ("Matter Finder");
+			Root = new RootElement (S.GetText (S.MATTER_SEARCH));
 			var rect = new RectangleF (100, 200, 400, 50);
 			SearchBar = new UISearchBar (rect);
 
@@ -46,7 +47,7 @@ namespace GhostPractice
 			SearchBar.SearchButtonClicked += delegate {
 				SearchBar.ResignFirstResponder ();
 				if (isBusy) {
-					new UIAlertView ("Search", "Searching is continuing, cannot start new search", null, "OK").Show ();
+					new UIAlertView (S.GetText (S.SEARCH), "Searching is continuing, cannot start new search", null, "OK").Show ();
 					cnt++;
 					if (cnt > 1) {
 						isBusy = false;
@@ -56,7 +57,7 @@ namespace GhostPractice
 				}
 				string s = SearchBar.Text.Trim ();
 				if (s == "" || s.Length == 0) {
-					new UIAlertView ("Search", "Please enter search text", null, "OK").Show ();
+					new UIAlertView (S.GetText (S.SEARCH), "Please enter search text", null, "OK").Show ();
 					return;
 				} else {
 					getAsyncData ();

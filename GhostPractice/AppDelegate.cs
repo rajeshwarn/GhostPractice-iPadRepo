@@ -4,6 +4,7 @@ using System.Linq;
 using MonoTouch.CoreLocation;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using GhostPracticeLibrary;
 
 namespace GhostPractice
 {
@@ -31,7 +32,7 @@ namespace GhostPractice
 			//#######################################################
 			//TODO - remove and test the real new user auth mechanism
 			//RemoveProperties ();
-			//SetManualProperties ();
+			SetManualProperties ();
 
 
 			var provDialog = new ProvisioningDialog ();

@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Web;
 using MonoTouch.Dialog;
 using System.Globalization;
+using GhostPracticeLibrary;
 
 namespace GhostPractice
 {
@@ -68,7 +69,7 @@ namespace GhostPractice
 		{
 			if (isTimeBased) {
 				//add 2 btns and result string
-				durationSection = new Section ("Task Duration");
+				durationSection = new Section (S.GetText (S.DURATION));
 				var btnHours = new StyledStringElement ("Pick Hours");
 				var btnMin = new StyledStringElement ("Pick Minutes");
 				btnHours.Alignment = UITextAlignment.Center;
@@ -197,7 +198,7 @@ namespace GhostPractice
 			view.Add (headerLabel);
 			topSection = new Section (view);
 
-			var timeBased = new BooleanElement ("Time Based Task", isTimeBased);
+			var timeBased = new BooleanElement (S.GetText (S.TIME_BASED_ACTIVITY), isTimeBased);
 			timeBased.ValueChanged += delegate {
 				if (isBusy) {
 					Busy ();
@@ -233,7 +234,7 @@ namespace GhostPractice
 		{
 			if (tariffList != null && tariffList.Count > 0) {
 
-				var sel = new StyledStringElement ("Select Activity Code");
+				var sel = new StyledStringElement (S.GetText (S.SELECT_ACTIVITY_CODE));
 				sel.TextColor = ColorHelper.GetGPLightPurple ();
 				sel.Alignment = UITextAlignment.Center;
 				//sel.BackgroundColor = ColorHelper.GetGPLightPurple ();
@@ -257,7 +258,7 @@ namespace GhostPractice
 							btns [i] = tariffList [i].name;
 						}
 						var actionSheet = new UIActionSheet (
-							                  "Activity Codes",
+							                  S.GetText (S.ACTIVITY_CODES),
 							                  null,
 							                  "Cancel",
 							                  null,

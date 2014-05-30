@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{CE8B2D02-5F4B-4732-8307-3D6F8514AA73}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>GhostPracticeLibrary</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)S.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\AppDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\CompanyDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\FeeDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\FeeTargetFix\InvoicedMTD.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GetReportResponseDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GhostRequestDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\MatterDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\MatterNoteDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\MatterSearchResultDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\MobileTariffCodeDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\PlatformDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\Bank.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\Branch.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\Branches.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\BranchTotals.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\BusinessStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\FeeTargetProgressReport.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\FinancialStatusReport.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\MatterActivity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\MatterAnalysisByOwnerReport.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\MatterBalances.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\MobileUser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\Owner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\PracticeTotals.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\RecordedMTD.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\RecordedYTD.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Reports\TrustStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ReportType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TaskDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\UserDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\WebServiceResponseDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\ActivityIndicator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\BigFinanceElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\BranchHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\BusyModalScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\ButtonElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\CalculateFee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\ColorHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\Comms.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\CustomImageStringElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\DataUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\Dummies.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\FinanceElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\GenericTDGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\GenericTDObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\GenericTDSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\GlassButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\Graphics.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\IDateInterface.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\ImageLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\IPagedViewDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\IPostingComplete.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\LoadingAlertView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\LocationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\LRUCache.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\MoneyElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\MoneyRow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\MultiEntryElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\NumberElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\PickerDataModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\Reachability.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\ReportsDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\RightAlignedEntryElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\StringsElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\Stripper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\TDBadgedCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\TitleElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\Tools.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\UIViewBordered.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\Zipper.cs" />
+  </ItemGroup>
+</Project>
