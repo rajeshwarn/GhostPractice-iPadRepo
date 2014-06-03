@@ -58,6 +58,12 @@ namespace GhostPracticeLibrary
 			SEARCH = "search", BUSINESS_BALANCE = "bus_balance", CURRENT_BALANCE = "curr_balance",
 			TRUST_BALANCE = "trstBal", 
 			INVESTMENT_BALANCE = "invBal",
+
+			INVESTMENT_TRUST = "invTrust",
+			UNBILLED_BALANCE = "unbilledBal",
+			PENDING_DISBURSEMENTS = "pendDisb",
+			BUSINESS = "biz",
+
 			RESERVE_TRUST = "rsvTrust", TIME_BASED_ACTIVITY = "tba",
 			DURATION = "dur", BUSINESS_DEBTORS = "bdebt", 
 
@@ -92,6 +98,12 @@ namespace GhostPracticeLibrary
 			en_ZA.Add (ACTIVITY_CODES, "Activity Codes");
 			en_ZA.Add (CURRENT_BALANCE, "Current Balance");
 
+			en_ZA.Add (INVESTMENT_TRUST, "Investment Trust");
+			en_ZA.Add (UNBILLED_BALANCE, "Unbilled Balance");
+			en_ZA.Add (PENDING_DISBURSEMENTS, "Pending Disbursements");
+			en_ZA.Add (BUSINESS, "Business");
+
+
 			//Canada
 			en_CA = new Dictionary<string, string> ();
 			en_CA.Add (MATTER_SEARCH, "Matter Search");
@@ -114,6 +126,11 @@ namespace GhostPracticeLibrary
 			en_CA.Add (INVESTMENTS, "Investments");
 			en_CA.Add (CURRENT_BALANCE, "Current Balance");
 
+			en_CA.Add (INVESTMENT_TRUST, "Investment Trust");
+			en_CA.Add (UNBILLED_BALANCE, "Unbilled Balance");
+			en_CA.Add (PENDING_DISBURSEMENTS, "Pending Disbursements");
+			en_CA.Add (BUSINESS, "Accounts Receivable");
+
 			//UK
 			en_GB = new Dictionary<string, string> ();
 			en_GB.Add (MATTER_SEARCH, "Matter Search");
@@ -135,6 +152,11 @@ namespace GhostPracticeLibrary
 			en_GB.Add (SELECT_ACTIVITY_CODE, "Select Activity Code");
 			en_GB.Add (ACTIVITY_CODES, "Activity Codes");
 			en_GB.Add (CURRENT_BALANCE, "Current Balance");
+
+			en_GB.Add (INVESTMENT_TRUST, "Investment Trust");
+			en_GB.Add (UNBILLED_BALANCE, "Unbilled Balance");
+			en_GB.Add (PENDING_DISBURSEMENTS, "Pending Disbursements");
+			en_GB.Add (BUSINESS, "Office");
 		}
 	}
 }

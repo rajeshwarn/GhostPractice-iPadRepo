@@ -10,6 +10,8 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Web;
 using MonoTouch.Dialog;
+using GhostPractice;
+using GhostPracticeLibrary;
 
 namespace GPMobilePad
 {

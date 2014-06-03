@@ -3,6 +3,8 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using System.Collections.Generic;
+using GhostPractice;
+using GhostPracticeLibrary;
 
 namespace GPMobilePad
 {

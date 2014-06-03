@@ -6,6 +6,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using System.Drawing;
 using MonoTouch.Dialog;
+using GhostPracticeLibrary;
 
 namespace GhostPractice
 {
@@ -56,9 +57,9 @@ namespace GhostPractice
 					//
 					var recYTD = new TitleElement ("Matter Balances");					
 					seco.Add (recYTD);
-					seco.Add (getElement (o.matterBalances.business, "Business:  "));
-					seco.Add (getElement (o.matterBalances.trust, "Trust:  "));
-					seco.Add (getElement (o.matterBalances.investment, "Investment:  "));
+					seco.Add (getElement (o.matterBalances.business, S.GetText (S.BUSINESS) + ":  "));
+					seco.Add (getElement (o.matterBalances.trust, S.GetText (S.TRUST) + ":  "));
+					seco.Add (getElement (o.matterBalances.investment, S.GetText (S.INVESTMENTS) + ":  "));
 					seco.Add (getElement (o.matterBalances.unbilled, "Unbilled:  "));					
 					seco.Add (getElement (o.matterBalances.pendingDisbursements, "Pending Disb:  "));
 					

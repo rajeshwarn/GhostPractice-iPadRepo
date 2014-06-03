@@ -10,8 +10,9 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Web;
 using MonoTouch.Dialog;
+using GhostPractice;
 
-namespace GhostPractice
+namespace GPMobilePad
 {
 	public class ReportsDataSource: IPagedViewDataSource
 	{

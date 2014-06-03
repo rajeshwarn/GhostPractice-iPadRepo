@@ -96,21 +96,21 @@ namespace GhostPractice
 				currBal = new FinanceElement (S.GetText (S.CURRENT_BALANCE) + ":", 0.00);
 				trustBal = new FinanceElement (S.GetText (S.TRUST_BALANCE) + ":", 0.00);
 				reserveTrust = new FinanceElement (S.GetText (S.RESERVE_TRUST) + ":", 0.00);
-				unbilled = new FinanceElement ("Unbilled Balance:", 0.00);
-				pending = new FinanceElement ("Pending Disbursements:", 0.00);
-				investTrust = new FinanceElement ("Investment Trust:", 0.00);
+				unbilled = new FinanceElement (S.GetText (S.UNBILLED_BALANCE) + ":", 0.00);
+				pending = new FinanceElement (S.GetText (S.PENDING_DISBURSEMENTS) + ":", 0.00);
+				investTrust = new FinanceElement (S.GetText (S.INVESTMENT_TRUST) + ":", 0.00);
 			} else {
 				busBal = new FinanceElement (S.GetText (S.BUSINESS_BALANCE) + ":", matter.businessBalance);
 				currBal = new FinanceElement (S.GetText (S.CURRENT_BALANCE), matter.currentBalance);
-				unbilled = new FinanceElement ("Unbilled Balance:", matter.unbilledBalance);
+				unbilled = new FinanceElement (S.GetText (S.UNBILLED_BALANCE) + ":", matter.unbilledBalance);
 				trustBal = new FinanceElement (S.GetText (S.TRUST_BALANCE), matter.trustBalance);
 				reserveTrust = new FinanceElement (S.GetText (S.RESERVE_TRUST), matter.reserveTrust);
 				pending = new FinanceElement (
-					"Pending Disbursements:",
+					S.GetText (S.PENDING_DISBURSEMENTS) + ":",
 					matter.pendingDisbursementBalance
 				);
 				investTrust = new FinanceElement (
-					"Investment Trust:",
+					S.GetText (S.INVESTMENT_TRUST) + ":",
 					matter.investmentTrustBalance
 				);
 				
@@ -140,7 +140,7 @@ namespace GhostPractice
 			btnPostFee = new StyledStringElement ("Post Fee");
 			btnPostUnbillable = new StyledStringElement ("Post Unbillable");
 			btnPostNote = new StyledStringElement ("Post Note");
-			btnBack = new StyledStringElement ("Matters Search");
+			btnBack = new StyledStringElement (S.GetText (S.MATTER_SEARCH));
 			btnAssignTask = new StyledStringElement ("Assign Task");
 
 			btnAssignTask.Tapped += delegate {

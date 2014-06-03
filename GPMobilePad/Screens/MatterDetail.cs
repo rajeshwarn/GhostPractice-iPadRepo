@@ -10,6 +10,9 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Web;
 using MonoTouch.Dialog;
+using GhostPractice;
+using GhostPracticeLibrary;
+
 
 namespace GPMobilePad
 {
@@ -32,7 +35,7 @@ namespace GPMobilePad
 
 		public UIPopoverController Popover { get; set; }
 
-		public MatterDetail (SplitController split, Finder finder) 
+		public MatterDetail (SplitController split, Finder finder)
 			: base (UITableViewStyle.Grouped, null)
 		{
 			this.split = split;
@@ -258,22 +261,21 @@ namespace GPMobilePad
 			//
 			var sec2 = new Section ("");
 			if (matter == null) {
-				busBal = new FinanceElement ("Business Balance:", 0.00);
-				currBal = new FinanceElement ("Current Balance:", 0.00);
-				busBal = new FinanceElement ("Business Balance:", 0.00);
-				trustBal = new FinanceElement ("Trust Balance:", 0.00);
-				reserveTrust = new FinanceElement ("Reserve Trust:", 0.00);
-				unbilled = new FinanceElement ("Unbilled Balance:", 0.00);
-				pending = new FinanceElement ("Pending Disbursements:", 0.00);
-				investTrust = new FinanceElement ("Investment Trust:", 0.00);
+				busBal = new FinanceElement (S.GetText (S.BUSINESS_BALANCE) + ":", 0.00);
+				currBal = new FinanceElement (S.GetText (S.CURRENT_BALANCE) + ":", 0.00);
+				trustBal = new FinanceElement (S.GetText (S.TRUST_BALANCE) + ":", 0.00);
+				reserveTrust = new FinanceElement (S.GetText (S.RESERVE_TRUST) + ":", 0.00);
+				unbilled = new FinanceElement (S.GetText (S.UNBILLED_BALANCE) + ":", 0.00);
+				pending = new FinanceElement (S.GetText (S.PENDING_DISBURSEMENTS) + ":", 0.00);
+				investTrust = new FinanceElement (S.GetText (S.INVESTMENT_TRUST) + ":", 0.00);
 			} else {
-				busBal = new FinanceElement ("Business Balance:", matter.businessBalance, deviceType);
-				currBal = new FinanceElement ("Current Balance:", matter.currentBalance, deviceType);
-				unbilled = new FinanceElement ("Unbilled Balance:", matter.unbilledBalance, deviceType);
-				trustBal = new FinanceElement ("Trust Balance:", matter.trustBalance, deviceType);
-				reserveTrust = new FinanceElement ("Reserve Trust:", matter.reserveTrust, deviceType);
-				pending = new FinanceElement ("Pending Disbursements:", matter.pendingDisbursementBalance, deviceType);
-				investTrust = new FinanceElement ("Investment Trust:", matter.investmentTrustBalance, deviceType
+				busBal = new FinanceElement (S.GetText (S.BUSINESS_BALANCE) + ":", matter.businessBalance, deviceType);
+				currBal = new FinanceElement (S.GetText (S.CURRENT_BALANCE) + ":", matter.currentBalance, deviceType);
+				unbilled = new FinanceElement (S.GetText (S.UNBILLED_BALANCE) + ":", matter.unbilledBalance, deviceType);
+				trustBal = new FinanceElement (S.GetText (S.TRUST_BALANCE) + ":", matter.trustBalance, deviceType);
+				reserveTrust = new FinanceElement (S.GetText (S.RESERVE_TRUST) + ":", matter.reserveTrust, deviceType);
+				pending = new FinanceElement (S.GetText (S.PENDING_DISBURSEMENTS) + ":", matter.pendingDisbursementBalance, deviceType);
+				investTrust = new FinanceElement (S.GetText (S.INVESTMENT_TRUST) + ":", matter.investmentTrustBalance, deviceType
 				);
 				
 			}

@@ -13,6 +13,8 @@ using System.Web;
 using MonoTouch.Dialog;
 using System.Globalization;
 using System.Threading;
+using GhostPractice;
+using GhostPracticeLibrary;
 
 namespace GPMobilePad
 {
@@ -61,7 +63,7 @@ namespace GPMobilePad
 		{
 			if (isTimeBased) {
 				//add 2 btns and result string
-				var durSection = new Section ("Task Duration");
+				var durSection = new Section (S.GetText (S.DURATION));
 				var btnHours = new StyledStringElement ("Pick Hours");
 				var btnMin = new StyledStringElement ("Pick Minutes");
 				btnHours.Alignment = UITextAlignment.Center;
@@ -199,7 +201,7 @@ namespace GPMobilePad
 				name = matter.matterName;
 			}
 			var sec = new Section (name);
-			var timeBased = new BooleanElement ("Time Based Task", isTimeBased);
+			var timeBased = new BooleanElement (S.GetText (S.TIME_BASED_ACTIVITY), isTimeBased);
 			
 			timeBased.ValueChanged += delegate {
 				if (isBusy) {
@@ -298,8 +300,8 @@ namespace GPMobilePad
 					feeDTO.duration = (hours * 60) + minutes;
 					if (feeDTO.duration == 0) {
 						new UIAlertView (
-							"Task Duration Error",
-							"Please enter the task duration for the fee before posting",
+							"Duration Error",
+							"Please enter the duration for the fee before posting",
 							null,
 							"OK"
 						).Show ();
@@ -396,7 +398,7 @@ namespace GPMobilePad
 					if (hours == 0 && minutes == 0) {
 						new UIAlertView (
 							"Tariff Code",
-							"Please enter task duration before requesting Calculation",
+							"Please enter duration before requesting Calculation",
 							null,
 							"OK"
 						).Show ();

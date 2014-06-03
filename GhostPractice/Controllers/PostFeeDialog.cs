@@ -308,8 +308,8 @@ namespace GhostPractice
 					feeDTO.duration = (hours * 60) + minutes;
 					if (feeDTO.duration == 0) {
 						new UIAlertView (
-							"Task Duration Error",
-							"Please enter the task duration for the fee before posting",
+							"Duration Error",
+							"Please enter the duration for the fee before posting",
 							null,
 							"OK"
 						).Show ();
@@ -399,7 +399,7 @@ namespace GhostPractice
 					if (hours == 0 && minutes == 0) {
 						new UIAlertView (
 							"Activity Code",
-							"Please enter task duration before requesting Calculation",
+							"Please enter duration before requesting Calculation",
 							null,
 							"OK"
 						).Show ();

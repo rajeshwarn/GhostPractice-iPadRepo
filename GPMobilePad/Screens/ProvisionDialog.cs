@@ -10,6 +10,8 @@ using System.Text;
 using System.Drawing;
 using Newtonsoft.Json;
 using System.Web;
+using GhostPractice;
+using GhostPracticeLibrary;
 
 namespace GPMobilePad
 {
@@ -137,21 +139,17 @@ namespace GPMobilePad
 
 		private void startMatterSearch ()
 		{
-			Console.WriteLine ("ProvisionDialog - startMatterSearch - normal work - not virgin");
+			Console.WriteLine ("ProvisionDialog - startMatterSearch - normal work - device provisioned");
 //			splitViewController = new SplitController ();
 //			var master = new MatterFinderController (splitViewController, null);
 //			var detail = new MatterDetail (splitViewController, null, null, null);
 //			splitViewController.setMatterControllers (master, detail);
 
-			split = new SplitController ();
 			var finder = new Finder (matterDetail);
 
 			matterDetail = new MatterDetail (split, finder);
 			var detailNavigationController = new UINavigationController (matterDetail);
-
-
 			var masterNavigationController = new UINavigationController (finder);
-
 
 			split.WeakDelegate = matterDetail;
 			split.ViewControllers = new UIViewController[] {
@@ -194,6 +192,7 @@ namespace GPMobilePad
 
 		void ProvisioningDownloaded (IAsyncResult result)
 		{
+			Console.WriteLine ("## ProvisioningDownloaded - check response data ....\n");
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 			end = DateTime.Now;
 			isBusy = false;

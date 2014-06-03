@@ -11,6 +11,8 @@ using MonoTouch.UIKit;
 using MonoTouch.Dialog;
 using System.Web;
 using System.Globalization;
+using GhostPractice;
+using GhostPracticeLibrary;
 
 namespace GPMobilePad
 {
@@ -29,7 +31,7 @@ namespace GPMobilePad
 
 		public void BuildInterface ()
 		{
-			Root = new RootElement ("Matter Finder");
+			Root = new RootElement (S.GetText (S.MATTER_SEARCH));
 			var rect = new RectangleF (100, 200, 400, 50);
 			SearchBar = new UISearchBar (rect);
 
@@ -60,11 +62,9 @@ namespace GPMobilePad
 			};	
 
 			SearchBar.BookmarkButtonClicked += delegate {
-				Console.WriteLine (" search bar cancel pressed");
 				SearchBar.ResignFirstResponder ();
 			};
 			SearchBar.CancelButtonClicked += delegate {
-				Console.WriteLine (" search bar cancel pressed");
 				SearchBar.ResignFirstResponder ();
 			};
 

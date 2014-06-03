@@ -6,6 +6,8 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.Dialog;
+using GhostPractice;
+using GhostPracticeLibrary;
 
 namespace GPMobilePad
 {
@@ -75,9 +77,9 @@ namespace GPMobilePad
 				var matterBalancesSection = new Section ();
 				var mTitle = new TitleElement ("Matter Balances");
 				matterBalancesSection.Add (mTitle);
-				matterBalancesSection.Add (getElement (totals.matterBalances.business, "Business: "));
-				matterBalancesSection.Add (getElement (totals.matterBalances.trust, "Trust Balance: "));
-				matterBalancesSection.Add (getElement (totals.matterBalances.investment, "Investments: "));
+				matterBalancesSection.Add (getElement (totals.matterBalances.business, S.GetText (S.BUSINESS) + ": "));
+				matterBalancesSection.Add (getElement (totals.matterBalances.trust, S.GetText (S.TRUST_BALANCE) + ": "));
+				matterBalancesSection.Add (getElement (totals.matterBalances.investment, S.GetText (S.INVESTMENTS) + ": "));
 				matterBalancesSection.Add (getElement (totals.matterBalances.unbilled, "Unbilled: "));				
 				matterBalancesSection.Add (getElement (totals.matterBalances.pendingDisbursements, "Pending Disb.: "));
 				Root.Add (matterBalancesSection);

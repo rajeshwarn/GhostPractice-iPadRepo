@@ -84,7 +84,7 @@ namespace GPMobilePad
 		{
 			var model = UIDevice.CurrentDevice.Model.ToString ();
 			var name = UIDevice.CurrentDevice.Name.ToString ();
-			Console.WriteLine ("AppDelegate - name: " + name + " model: " + model);
+			Console.WriteLine ("AppDelegate check provisioning - name: " + name + " model: " + model);
 			string deviceID = NSUserDefaults.StandardUserDefaults.StringForKey ("deviceID");
 			if (deviceID == null) {
 				return false;

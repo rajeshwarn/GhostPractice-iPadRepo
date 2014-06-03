@@ -70,6 +70,6 @@ Global
 		{CFBA9349-85AB-412E-8603-FD8C92EDEF36}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = GhostPractice\GhostPractice.csproj
+		StartupItem = GPMobilePad\GPMobilePad.csproj
 	EndGlobalSection
 EndGlobal

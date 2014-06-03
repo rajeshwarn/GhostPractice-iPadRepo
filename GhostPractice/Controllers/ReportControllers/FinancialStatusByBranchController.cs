@@ -6,6 +6,7 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.Dialog;
+using GhostPracticeLibrary;
 
 namespace GhostPractice
 {
@@ -29,12 +30,12 @@ namespace GhostPractice
 			Stripper.SetReportHeader (Root, "Branch Financial Status", branch.name, contentWidth);
 			
 			var business = new Section ("");
-			business.Add (getElement (branch.businessStatus.businessDebtors, "Business Debtors:  "));
-			business.Add (getElement (branch.businessStatus.businessCreditors, "Business Creditors:  "));
+			business.Add (getElement (branch.businessStatus.businessDebtors, S.GetText (S.BUSINESS_DEBTORS) + ":  "));
+			business.Add (getElement (branch.businessStatus.businessCreditors, S.GetText (S.BUSINESS_CREDITORS) + ":  "));
 			business.Add (getElement (branch.businessStatus.banksTotal, "Banks Total:  "));
-			business.Add (getElement (branch.businessStatus.pendingDisbursements, "Pending Disbursements:  "));
+			business.Add (getElement (branch.businessStatus.pendingDisbursements, S.GetText (S.PENDING_DISBURSEMENTS) + ":  "));
 			business.Add (getElement (branch.businessStatus.unbilled, "Unbilled:  "));
-			business.Add (getElement (branch.businessStatus.vat, "Value Added Tax:  "));
+			business.Add (getElement (branch.businessStatus.vat, S.GetText (S.VAT) + ":  "));
 			business.Add (getElement (branch.businessStatus.availableForTransfer, "Available for Transfer:  "));
 			
 			for (var i = 0; i < branch.businessStatus.banks.Count; i++) {
@@ -49,10 +50,10 @@ namespace GhostPractice
 			}
 			Root.Add (business);
 			//
-			var trust = new Section ("Trust Status");
+			var trust = new Section (S.GetText (S.TRUST_STATUS));
 			trust.Add (getElement (branch.trustStatus.banksTotal, "Banks Total:  "));
-			trust.Add (getElement (branch.trustStatus.trustCreditors, "Trust Creditors:  "));
-			trust.Add (getElement (branch.trustStatus.investments, "Investments:  "));
+			trust.Add (getElement (branch.trustStatus.trustCreditors, S.GetText (S.TRUST_CREDITORS) + ":  "));
+			trust.Add (getElement (branch.trustStatus.investments, S.GetText (S.INVESTMENTS) + ":  "));
 			
 			for (var i = 0; i < branch.trustStatus.banks.Count; i++) {
 				var bn = new TitleElement (branch.trustStatus.banks [i].name);	

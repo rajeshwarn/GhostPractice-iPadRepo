@@ -6,6 +6,7 @@ using System.Globalization;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.Dialog;
+using GhostPracticeLibrary;
 
 namespace GhostPractice
 {
@@ -60,9 +61,9 @@ namespace GhostPractice
 					var matterBalancesSection = new Section ();
 					var mTitle = new TitleElement ("Matter Balances");
 					matterBalancesSection.Add (mTitle);
-					matterBalancesSection.Add (getElement (branch.branchTotals.matterBalances.business, "Business: "));
-					matterBalancesSection.Add (getElement (branch.branchTotals.matterBalances.trust, "Trust Balance: "));
-					matterBalancesSection.Add (getElement (branch.branchTotals.matterBalances.investment, "Investments: "));
+					matterBalancesSection.Add (getElement (branch.branchTotals.matterBalances.business, S.GetText (S.BUSINESS) + ": "));
+					matterBalancesSection.Add (getElement (branch.branchTotals.matterBalances.trust, S.GetText (S.TRUST_BALANCE) + ": "));
+					matterBalancesSection.Add (getElement (branch.branchTotals.matterBalances.investment, S.GetText (S.INVESTMENTS) + ": "));
 					matterBalancesSection.Add (getElement (branch.branchTotals.matterBalances.unbilled, "Unbilled: "));
 					matterBalancesSection.Add (getElement (branch.branchTotals.matterBalances.pendingDisbursements, "Pending Disb.: "));
 					Root.Add (matterBalancesSection);
