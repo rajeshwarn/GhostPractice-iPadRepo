@@ -111,6 +111,7 @@
     </MtouchI18n>
     <MtouchArch>ARMv7</MtouchArch>
     <MtouchExtraArgs>--compiler=clang</MtouchExtraArgs>
+    <CodesignProvision>E6BF4A4C-0DDF-4E57-8846-C6D5705D1F99</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -132,10 +133,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Controllers\MatterFindController.cs" />
-    <Compile Include="Controllers\MatterFindController.designer.cs">
-      <DependentUpon>MatterFindController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\ReportControllers\FeeTargetProgressController.cs" />
     <Compile Include="Controllers\ReportControllers\FeeTargetBranchOwnerController.cs" />
     <Compile Include="Controllers\ReportControllers\MatterAnalysisController.cs" />
@@ -172,7 +169,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Controllers\MatterFindController.xib" />
     <InterfaceDefinition Include="Controllers\ReportControllers\PagesConductor.xib" />
     <InterfaceDefinition Include="Controllers\FeeEarnerListController.xib" />
     <InterfaceDefinition Include="Controllers\FeeEarnerTaskController.xib" />

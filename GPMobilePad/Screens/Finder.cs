@@ -22,6 +22,7 @@ namespace GPMobilePad
 		UISearchBar SearchBar;
 		Section resultSection;
 		MatterDetail matterDetail;
+		StringElement about;
 
 		public Finder (MatterDetail matterDetail) : base (UITableViewStyle.Grouped, null)
 		{
@@ -73,6 +74,7 @@ namespace GPMobilePad
 				SearchBar.Text = srch;
 				getAsyncData ();
 			}
+
 		}
 
 		static List<MatterSearchResultDTO> searchResults;
@@ -144,10 +146,9 @@ namespace GPMobilePad
 							resultSection.Clear ();
 							NSUserDefaults.StandardUserDefaults.SetString ("", "search");
 							new UIAlertView ("Search Result", "No matters found for this search", null, "OK").Show ();	
-						} else {
-							//new UIAlertView ("Search Result", "Matters found for this search: " + searchResults.Count, null, "OK").Show ();	
-						}
+						} 
 					} else {
+						Console.WriteLine ("message: " + dto.responseMessage);
 						new UIAlertView ("Search Result", dto.responseMessage + "\nStatus Code: " + dto.responseCode, null, "OK").Show ();
 						return;
 					}

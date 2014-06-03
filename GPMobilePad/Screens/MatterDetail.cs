@@ -166,15 +166,21 @@ namespace GPMobilePad
 
 				}
 			});
+			btnAbout = new UIBarButtonItem ("About", UIBarButtonItemStyle.Plain, delegate (object sender, EventArgs e) {
+				var s = "\n";
+				s += "UserName: " + NSUserDefaults.StandardUserDefaults.StringForKey ("userName") + "\n";
+				s += "UserID: " + NSUserDefaults.StandardUserDefaults.StringForKey ("userID") + "\n";
+				if (NSUserDefaults.StandardUserDefaults.StringForKey ("companyName") != null) {
+					s += "Practice: " + NSUserDefaults.StandardUserDefaults.StringForKey ("companyName") + "\n";
+				}
+				s += "App Version: " + NSBundle.MainBundle.InfoDictionary ["CFBundleVersion"] + "\n";
+				new UIAlertView ("User Information", s, null, "OK").Show ();
+			});
 
 			btnReports.TintColor = UIColor.Black;
-
-//			btnPostFee.TintColor = ColorHelper.GetGPLightPurple ();
-//			btnPostUnbillable.TintColor = ColorHelper.GetGPLightPurple ();
-//			btnPostNote.TintColor = ColorHelper.GetGPLightPurple ();
 			disableButtons ();
 
-			UIBarButtonItem[] btns = { btnReports, btnPostFee, btnPostUnbillable, btnPostNote };
+			UIBarButtonItem[] btns = { btnAbout, btnReports, btnPostFee, btnPostUnbillable, btnPostNote };
 			this.NavigationItem.SetRightBarButtonItems (btns, true);
 
 		}
@@ -197,7 +203,7 @@ namespace GPMobilePad
 		public void WillHideViewController (UISplitViewController splitController, UIViewController viewController, UIBarButtonItem barButtonItem, UIPopoverController popoverController)
 		{
 			Console.WriteLine ("MatterDetail - WillHideViewController setting up Find Matter button");
-			barButtonItem.Title = "Find Matter";
+			barButtonItem.Title = S.GetText (S.MATTER_SEARCH);
 			NavigationItem.SetLeftBarButtonItem (barButtonItem, true);
 			masterPopoverController = popoverController;
 		}
@@ -379,7 +385,7 @@ namespace GPMobilePad
 		}
 
 		UIPopoverController masterPopoverController;
-		UIBarButtonItem btnReports, btnPostFee, btnPostUnbillable, btnPostNote;
+		UIBarButtonItem btnReports, btnPostFee, btnPostUnbillable, btnPostNote, btnAbout;
 
 		public override bool ShouldAutorotate ()
 		{

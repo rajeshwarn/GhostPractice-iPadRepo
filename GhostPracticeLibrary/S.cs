@@ -32,7 +32,7 @@ namespace GhostPracticeLibrary
 			}
 			var xx = Thread.CurrentThread.CurrentCulture;
 
-			String value = "ERROR, needs setup";
+			String value = "ERROR, needs setup xx: " + xx.ToString ();
 			if (xx.ToString () == "en-ZA") {
 				var OK = en_ZA.TryGetValue (key, out value);
 				if (OK) {
@@ -47,6 +47,12 @@ namespace GhostPracticeLibrary
 			}
 			if (xx.ToString () == "en-GB") {
 				var OK = en_GB.TryGetValue (key, out value);
+				if (OK) {
+					return value;
+				}
+			}
+			if (xx.ToString () == "en-US") {
+				var OK = en_CA.TryGetValue (key, out value);
 				if (OK) {
 					return value;
 				}
@@ -111,7 +117,7 @@ namespace GhostPracticeLibrary
 			en_CA.Add (BUSINESS_BALANCE, "A/R Balance");
 			en_CA.Add (TRUST_BALANCE, "Trust Balance");
 			en_CA.Add (INVESTMENT_BALANCE, "Investment Balance");
-			en_CA.Add (RESERVE_TRUST, " ");
+			en_CA.Add (RESERVE_TRUST, "Reserve Trust");
 			en_CA.Add (TIME_BASED_ACTIVITY, "Time Based Activity");
 			en_CA.Add (DURATION, "Duration");
 			en_CA.Add (BUSINESS_DEBTORS, "Accounts Receivable");

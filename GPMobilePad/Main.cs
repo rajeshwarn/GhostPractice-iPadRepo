@@ -14,7 +14,7 @@ namespace GPMobilePad
 		{
 			// if you want to use a different Application Delegate class from "AppDelegate"
 			// you can specify it here.
-			Console.WriteLine ("Main.cs --- about to kick application off!...problem may be here");
+			Console.WriteLine ("####### GPMobilePad -Main.cs --- app starting ...");
 			UIApplication.Main (args, null, "AppDelegate");
 		}
 	}

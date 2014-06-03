@@ -21,14 +21,32 @@ namespace GhostPractice
 		DateTime start, end;
 		UISearchBar SearchBar;
 		Section resultSection;
+		UIBarButtonItem btnReports, btnAbout;
 
 		public Finder () : base (UITableViewStyle.Grouped, null)
 		{
-			this.NavigationItem.RightBarButtonItem = new UIBarButtonItem ("Reports", UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
-				//var cont = new ReportSelectorController (new PagedViewController (), true);
+
+
+			btnReports = new UIBarButtonItem ("Reports", UIBarButtonItemStyle.Plain, delegate (object sender, EventArgs e) {
 				var cont = new ReportsCoordinatorDialog ();
 				NavigationController.PushViewController (cont, true);
 			});
+			btnAbout = new UIBarButtonItem ("About", UIBarButtonItemStyle.Plain, delegate (object sender, EventArgs e) {
+				var s = "\n";
+				s += "UserName: " + NSUserDefaults.StandardUserDefaults.StringForKey ("userName") + "\n";
+				s += "UserID: " + NSUserDefaults.StandardUserDefaults.StringForKey ("userID") + "\n";
+				if (NSUserDefaults.StandardUserDefaults.StringForKey ("companyName") != null) {
+					s += "Practice: " + NSUserDefaults.StandardUserDefaults.StringForKey ("companyName") + "\n";
+				}
+				s += "App Version: " + NSBundle.MainBundle.InfoDictionary ["CFBundleVersion"] + "\n";
+				new UIAlertView ("User Information", s, null, "OK").Show ();
+			});
+
+			UIBarButtonItem[] btns = { btnAbout, btnReports };
+			this.NavigationItem.SetRightBarButtonItems (btns, true);
+
+
+
 			BuildInterface ();
 		}
 

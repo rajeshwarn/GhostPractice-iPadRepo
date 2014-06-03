@@ -25,7 +25,7 @@ namespace GhostPractice
 			Root = new RootElement ("GhostPractice Mobile");
 			var topSec = new Section ("Welcome");
 			topSec.Add (new StringElement ("Please enter activation code"));
-			activation = new EntryElement ("Code", "Activation Code", null); 
+			activation = new EntryElement ("Code", "Activation Code", String.Empty); 
 			topSec.Add (activation);
 			var submit = new StringElement ("Send Code");
 			submit.Alignment = UITextAlignment.Center;
@@ -130,7 +130,10 @@ namespace GhostPractice
 						if (dto.deviceID != null) {
 							NSUserDefaults.StandardUserDefaults.SetString (dto.deviceID, "deviceID");
 						}
-						var cont = new MatterFindController ();
+						if (dto.user.company != null) {
+							NSUserDefaults.StandardUserDefaults.SetString (dto.user.company.companyName, "companyName");
+						}
+						var cont = new Finder ();
 						this.NavigationController.PushViewController (cont, true);
 					} else {
 						new UIAlertView (

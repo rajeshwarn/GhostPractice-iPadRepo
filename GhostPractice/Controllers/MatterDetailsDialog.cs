@@ -199,7 +199,7 @@ namespace GhostPractice
 			sec3.Add (btnPostUnbillable);
 			sec3.Add (btnPostNote);
 			sec3.Add (btnAssignTask);
-			//sec3.Add (btnBack);
+			sec3.Add (btnBack);
 			Root.Add (sec3);
 			
 		}

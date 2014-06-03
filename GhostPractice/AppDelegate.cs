@@ -32,7 +32,7 @@ namespace GhostPractice
 			//#######################################################
 			//TODO - remove and test the real new user auth mechanism
 			//RemoveProperties ();
-			SetManualProperties ();
+			//SetManualProperties ();
 
 
 			var provDialog = new ProvisioningDialog ();

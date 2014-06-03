@@ -215,7 +215,7 @@ namespace GPMobilePad
 				
 				InvokeOnMainThread (delegate {
 					if (dto.responseCode == 0) {
-						Console.WriteLine ("Device successfully activated. Saving user data");
+						Console.WriteLine ("####### Device successfully activated. Saving user data");
 						if (dto.user.cellphone != null) {
 							NSUserDefaults.StandardUserDefaults.SetString (dto.user.cellphone, "cellphone");
 						}
@@ -230,6 +230,10 @@ namespace GPMobilePad
 						if (dto.deviceID != null) {
 							NSUserDefaults.StandardUserDefaults.SetString (dto.deviceID, "deviceID");
 						}
+						if (dto.user.company.companyName != null) {
+							NSUserDefaults.StandardUserDefaults.SetString (dto.user.company.companyName, "companyName");
+						}
+
 						startMatterSearch ();
 					} else {
 
