@@ -11,47 +11,61 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Web;
 using MonoTouch.Dialog;
+using GhostPractice;
+using GhostPracticeLibrary;
 
-namespace GhostPractice
+namespace GPMobilePad
 {
-	public partial class PostNoteDialog : DialogViewController, IDateInterface
+	public partial class TaskDialog : DialogViewController, IDateInterface
 	{
-		MatterDTO matter;
+		MatterSearchResultDTO matter;
 
 		public DateTime selectedDate { get; set; }
 
 		DateTime start, end;
 		EntryElement narration;
-		MobileTariffCodeDTO selectedTariff;
-		List<MobileTariffCodeDTO> tariffList;
+		MobileUser selectedUser;
 		StyledStringElement btnTar;
 		//Section busySection;
 		IPostingComplete listener;
 		bool isBusy;
-		//		private UIActivityIndicatorView pv;
+		//private UIActivityIndicatorView pv;
+
+		private UIActivityIndicatorView getProgressIndicator ()
+		{
+			UIActivityIndicatorView pind = new UIActivityIndicatorView (new RectangleF (145f, 165f, 30f, 30f)) {
+				ActivityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray,
+				AutoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleTopMargin
+				| UIViewAutoresizing.FlexibleBottomMargin,
+				Tag = 1
+			};
+			return pind;
+		}
+
 		public  void dateSelected (DateTime date)
 		{                    
 			selectedDate = date;
 		}
-		//public override void ViewWillAppear (bool animated)
-		//{
-		//}
-		public PostNoteDialog (MatterDTO matter, IPostingComplete listener) : base (UITableViewStyle.Grouped, null, true)
+
+		public override void ViewWillAppear (bool animated)
+		{                    
+
+		}
+
+		public TaskDialog (MatterSearchResultDTO matter, IPostingComplete listener) : base (UITableViewStyle.Grouped, null)
 		{
+
 			this.matter = matter; 
 			this.listener = listener;
 			selectedDate = DateTime.Now;
-			//this.NavigationItem.RightBarButtonItem = new UIBarButtonItem ("Back", UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
-			//	NavigationController.PopViewControllerAnimated (true);
-			//});
-			GetTariffCodes (0);
+			GetFeeEarners (0);
 			BuildInterface ();
 		}
 
 		public void BuildInterface ()
 		{
 			if (Root == null) {
-				Root = new RootElement ("Post Note");
+				Root = new RootElement ("PostTaskDialog");
 			}
 			Root.Clear ();
 			BuildSections ();
@@ -62,126 +76,138 @@ namespace GhostPractice
 
 		private void BuildSections ()
 		{
-			var headerLabel = new UILabel (new RectangleF (0, 0, 370, 30)) {
-				Font = UIFont.BoldSystemFontOfSize (18),
+			var headerLabel = new UILabel (new RectangleF (10, 10, 400, 40)) {
+				Font = UIFont.BoldSystemFontOfSize (20),
 				BackgroundColor = ColorHelper.GetGPPurple (),
 				TextAlignment = UITextAlignment.Center,
 				TextColor = UIColor.White,
-				Text = "Post Note"
+				Text = "Post Tasks"
 			};
+
 			var view = new UIViewBordered ();
-			view.Frame = new RectangleF (0, 0, 370, 30); 
+			view.Frame = new RectangleF (10, 10, 400, 40); 
 			view.Add (headerLabel);
 			var topSection = new Section (view);
-
+			
 			Root.Add (topSection);	
 
 			string name = "";
 			if (matter != null) {
 				name = matter.matterName;
-				headerLabel.Text = name;
 			}
-			//var sec = new Section (name);
+			var sec = new Section (name);
 			//
 			addBusySection ();
-
-			if (tariffList != null && tariffList.Count > 0) {			
-				btnTar = new StyledStringElement ("Select Activity Code");
+			var feeEarnerName = new Section ("Fee Earner Name");
+			if (selectedUser != null) {
+				feeEarnerName = new Section (selectedUser.firstNames + " " + selectedUser.lastName);
+			}
+			var tarSec = new Section ();
+			if (list != null && list.Count > 0) {			
+				btnTar = new StyledStringElement ("Select Fee Earner");
 				btnTar.TextColor = ColorHelper.GetGPLightPurple ();
 				btnTar.Alignment = UITextAlignment.Center;
 				btnTar.Accessory = UITableViewCellAccessory.DisclosureIndicator;
 				btnTar.Tapped += delegate {
-					if (tariffList == null) {
-
+					if (list == null) {
+						
 					} else {
-						string[] btns = new string[tariffList.Count];
-						for (int i = 0; i < tariffList.Count; i++) {
-							btns [i] = tariffList [i].name;
+						string[] btns = new string[list.Count];
+						for (int i = 0; i < list.Count; i++) {
+							btns [i] = list [i].firstNames + " " + list [i].lastName;
 						}
-						actionSheet = new UIActionSheet ("Activity Codes", null, "Cancel", null, btns) { 
-							Style = UIActionSheetStyle.Automatic
+						actionSheet = new UIActionSheet ("Fee Earners", null, "Cancel", null, btns) { 
+							Style = UIActionSheetStyle.Default
 						};
 
 						actionSheet.Clicked += delegate (object sender, UIButtonEventArgs args) {
-							if (args.ButtonIndex == tariffList.Count) {
+							if (args.ButtonIndex == list.Count) {
 								//ignored - cancelled
 							} else {
-								narration.Value = tariffList [args.ButtonIndex].narration;
-								selectedTariff = tariffList [args.ButtonIndex];	
-								//TODO - think about just updating the affected fields only ... lose the effect?
+
+								selectedUser = list [args.ButtonIndex];	
 								BuildInterface ();
 							}
-
+							
 						};
-
+	
 						actionSheet.ShowInView (View);
 					}
-
+					
 				};
-				topSection.Add (btnTar);
+				tarSec.Add (btnTar);
 			}
 			//
-			narrationSection = new Section ("");
 
-			if (selectedTariff == null) {
-				narration = new EntryElement ("Narration", "Narration", null);
-			} else {
-				narrationSection = new Section (selectedTariff.name);
-				narration = new EntryElement ("Narration", "", selectedTariff.narration);
-			}
+
+			narration = new EntryElement ("Description", "Enter description text", null);
 			narration.KeyboardType = UIKeyboardType.Default;
-			narrationSection.Add (narration);
+			feeEarnerName.Add (narration);
 			//
 			picker = new UIDatePicker ();
 			//picker.Frame = new RectangleF (10f, 10f, 320f, 320f);
 			picker.Mode = UIDatePickerMode.Date;
 			picker.Date = DateTime.Now;
-
+			
 			var pickerSection = new Section (picker);
-
-			//Root.Add (sec);
-			Root.Add (narrationSection);
+			
+			Root.Add (sec);
+			Root.Add (tarSec);
+			Root.Add (feeEarnerName);
 			Root.Add (pickerSection);
 			BuildButtons ();
 
 
 		}
 
-		Section narrationSection;
-
 		private void BuildButtons ()
 		{
-
+			var sec = new Section ("");
 			var btnSend = new StyledStringElement ("Send to Office");
 			btnSend.TextColor = ColorHelper.GetGPLightPurple ();
+			var switchNotify = new BooleanElement ("Notify?", true);
 			btnSend.Tapped += delegate {
 				//test
 				if (isBusy) {
 					Busy ();
 					return;
 				}
-
-				var note = new MatterNoteDTO ();
-				if (picker != null) {
-					picker.TimeZone = NSTimeZone.DefaultTimeZone;
-					DateTime dt = DateTime.Now;
-					Console.WriteLine ("----> PostNote picker local date: " + dt.ToString ());
-					note.date = Tools.ConvertDateTimeToJavaMS (dt);
-				} 
-
-				note.matterID = Convert.ToInt16 (matter.id);
-				if (narration.Value.Trim () == "") {
-					new UIAlertView ("Narration", "Please enter Note narration", null, "OK").Show ();
+				if (selectedUser == null) {
+					new UIAlertView ("Fee Earner", "Please select a Fee Earner", null, "OK").Show ();
 					return;
 				}
-				note.narration = narration.Value;
-				note.tariffCodeID = selectedTariff.id;
-				PostNoteToOffice (note);
+				var task = new TaskDTO ();
+				DateTime dt = picker.Date;
+				DateTime now = DateTime.Now;
+				Console.WriteLine ("### Task Due Date picked: " + dt.ToLongDateString ());
+				Console.WriteLine ("### Today is: " + now.ToLongDateString ());
+
+
+				task.dueDate = Tools.ConvertDateTimeToJavaMS (dt);
+				task.matterID = matter.matterID;
+				task.userID = selectedUser.userID;
+				task.taskDescription = narration.Value;
+				if (switchNotify.Value == true) {
+					task.notifyWhenComplete = true;
+				} else {
+					task.notifyWhenComplete = false;
+				}
+
+
+				if (narration.Value.Trim () == "") {
+					new UIAlertView ("Description", "Please enter Task description", null, "OK").Show ();
+					return;
+				}
+				sendAssignTaskRequest (task);
+
 
 			};
 
 			btnSend.Alignment = UITextAlignment.Center;
-			narrationSection.Add (btnSend);
+			sec.Add (switchNotify);
+			sec.Add (btnSend);
+
+			Root.Add (sec);
 
 		}
 
@@ -207,121 +233,17 @@ namespace GhostPractice
 				"OK"
 			).Show ();
 		}
-		/*		
-		 * Methods to access web services async
-		 * 
-		 */
-		public void PostNoteToOffice (MatterNoteDTO note)
-		{
-			if (isBusy) {
-				Console.WriteLine ("##PostNote: comms are busy, slow down!");
-				return;
-			}
-			isBusy = true;
-			BuildInterface ();
-			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-			start = DateTime.Now;
-			GhostRequestDTO cr = new GhostRequestDTO ();
-			string json, encodedJSON, url;
 
-			cr.requestType = GhostRequestDTO.POST_NOTE;
-			cr.note = note;
-			cr.appID = NSUserDefaults.StandardUserDefaults.IntForKey ("appID");
-			cr.userID = NSUserDefaults.StandardUserDefaults.IntForKey ("userID");
-			cr.companyID = NSUserDefaults.StandardUserDefaults.IntForKey ("companyID");
-			cr.deviceID = NSUserDefaults.StandardUserDefaults.StringForKey ("deviceID");
-
-			json = JsonConvert.SerializeObject (cr);
-			Console.WriteLine ("@@ PostNote JSON = " + json);
-			encodedJSON = HttpUtility.UrlEncode (json);
-			url = Tools.CONSOLE_URL + encodedJSON;
-
-			var request = (HttpWebRequest)WebRequest.Create (url);
-			request.BeginGetResponse (PostComplete, request);	
-
-
-		}
-
-		void PostComplete (IAsyncResult result)
-		{
-			isBusy = false;
-
-			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
-			end = DateTime.Now;
-			var request = result.AsyncState as HttpWebRequest;			
-			WebServiceResponseDTO dto;
-			try {
-				HttpWebResponse response = (HttpWebResponse)request.EndGetResponse (result);
-				Stream receiveStream = response.GetResponseStream ();
-				StreamReader readStream = new StreamReader (receiveStream, Encoding.UTF8);
-				string resp = readStream.ReadToEnd ();
-				Console.WriteLine ("## PostNote Response stream received.\n" + resp);
-				response.Close ();
-				readStream.Close ();
-				//get JSON response deserialized
-				dto = (WebServiceResponseDTO)JsonConvert.DeserializeObject (
-					resp,
-					typeof(WebServiceResponseDTO)
-				);
-				if (dto != null) {
-					Tools.SendElapsedTime (start, end, dto.activityID);
-				}
-
-				InvokeOnMainThread (delegate {
-					BuildInterface ();
-
-					if (dto.responseCode == 0) {
-						try {
-							new UIAlertView (
-								"Posting Note",
-								"Posting has been successfully completed",
-								null,
-								"OK"
-							).Show ();
-							//no need to refresh MatterDetails?????
-							//this.NavigationController.PopViewControllerAnimated (true);
-						} catch (Exception e) {
-							//ignore - trapping event this is not there to host pop up
-							Console.WriteLine ("### IGNORED A: " + e.Message);
-						}
-					} else {
-						try {
-							new UIAlertView ("Posting Note Error", dto.responseMessage, null, "OK").Show ();
-						} catch (Exception e) {
-							//ignore - trapping event this is not there to host pop up
-							Console.WriteLine ("### IGNORED B: " + e.Message);
-						}
-					}
-					notifyListener ();
-				}
-				);
-
-
-
-			} catch (Exception ex) {
-				Console.WriteLine ("### ERROR: " + ex.Message);
-				isBusy = false;
-				InvokeOnMainThread (delegate {
-					new UIAlertView (
-						"Network Error",
-						"Problem communicating with server.\nPlease try later or call GhostPractice Support",
-						null,
-						"Close"
-					).Show ();
-				}
-				);
-			}
-		}
 
 		void notifyListener ()
 		{
 			listener.onPostingComplete ();
 		}
 
-		public void GetTariffCodes (int duration)
+		public void GetFeeEarners (int duration)
 		{
 			if (isBusy) {
-				Console.WriteLine ("##GetTariffCodes: comms are busy, slow down!");
+				Console.WriteLine ("##GetFeeEarners: comms are busy, slow down!");
 				return;
 			}
 			if (matter == null) {
@@ -334,25 +256,24 @@ namespace GhostPractice
 			start = DateTime.Now;
 			GhostRequestDTO cr = new GhostRequestDTO ();
 			string json, encodedJSON, url;
-
-			cr.requestType = GhostRequestDTO.GET_TARIFF_CODES;
-			cr.matterID = matter.id;
-			cr.duration = duration;
-			cr.tarrifCodeType = DataUtil.TARIFF_CODE_TYPE_NOTES;
+				
+			cr.requestType = GhostRequestDTO.GET_FEE_EARNERS;
 			cr.appID = NSUserDefaults.StandardUserDefaults.IntForKey ("appID");
 			cr.userID = NSUserDefaults.StandardUserDefaults.IntForKey ("userID");
 			cr.companyID = NSUserDefaults.StandardUserDefaults.IntForKey ("companyID");
 			cr.deviceID = NSUserDefaults.StandardUserDefaults.StringForKey ("deviceID");
-
+				
 			json = JsonConvert.SerializeObject (cr);
-			Console.WriteLine ("$$ GetTariffCodes JSON = " + json);
+			Console.WriteLine ("$$ GetFeeEarners JSON = " + json);
 			encodedJSON = HttpUtility.UrlEncode (json);
 			url = Tools.CONSOLE_URL + encodedJSON;
-
+				
 			var request = (HttpWebRequest)WebRequest.Create (url);
 			request.BeginGetResponse (DataDownloaded, request);
-
+			
 		}
+
+		List<MobileUser> list;
 
 		void DataDownloaded (IAsyncResult result)
 		{
@@ -375,41 +296,34 @@ namespace GhostPractice
 					resp,
 					typeof(WebServiceResponseDTO)
 				);
-
+				
 				if (dto != null) {
 					Tools.SendElapsedTime (start, end, dto.activityID);
 				}	
-
+				
 				InvokeOnMainThread (delegate {
 					BuildInterface ();
-					selectedTariff = null;
+					selectedUser = null;
 					if (dto.responseCode == 0) {
 						//insert "none" record on top...
-						MobileTariffCodeDTO d = new MobileTariffCodeDTO ();
-						d.id = 0;
-						d.name = "None";
-						d.narration = "None";
-						tariffList = new List<MobileTariffCodeDTO> ();
-						tariffList.Add (d);
-						foreach (var t in dto.mobileTariffCodeList) {
-							tariffList.Add (t);
+						MobileUser d = new MobileUser ();
+						d.firstNames = "None";
+						d.lastName = "None";
+						d.userID = 0;
+						list = new List<MobileUser> ();
+						list.Add (d);
+						foreach (var t in dto.mobileUsers) {
+							list.Add (t);
 						}
 						BuildInterface ();
-						if (tariffList == null || tariffList.Count == 0) {
-							new UIAlertView (
-								"Activity Code Error",
-								"No Activity codes found for matter",
-								null,
-								"OK"
-							).Show ();	
-						}
+
 					} else {						
-						new UIAlertView ("Activity Code Error", dto.responseMessage, null, "OK").Show ();
+						new UIAlertView ("Fee Earner List Error", dto.responseMessage, null, "OK").Show ();
 						return;
 					}
 				}
 				);								
-
+				
 			} catch (Exception ex) {
 				Console.WriteLine ("### ERROR: " + ex.Message);
 				isBusy = false;
@@ -422,6 +336,90 @@ namespace GhostPractice
 					).Show ();
 				}
 				);
+			}
+		}
+
+		public void sendAssignTaskRequest (TaskDTO task)
+		{
+			isBusy = true;
+			start = DateTime.Now;
+			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
+			GhostRequestDTO cr = new GhostRequestDTO ();
+			string json, encodedJSON, url;
+
+			cr.requestType = GhostRequestDTO.ASSIGN_TASK;
+			cr.task = task;
+			Console.WriteLine ("Task Description in getAsyncData: " + cr.task.taskDescription);
+			cr.appID = NSUserDefaults.StandardUserDefaults.IntForKey ("appID");
+			cr.userID = NSUserDefaults.StandardUserDefaults.IntForKey ("userID");
+			cr.companyID = NSUserDefaults.StandardUserDefaults.IntForKey ("companyID");
+			cr.deviceID = NSUserDefaults.StandardUserDefaults.StringForKey ("deviceID");
+
+			json = JsonConvert.SerializeObject (cr);
+			Console.WriteLine ("Async JSON = " + json);
+			encodedJSON = HttpUtility.UrlEncode (json);
+			url = Tools.CONSOLE_URL + encodedJSON;				
+
+			try {
+				var request = (HttpWebRequest)WebRequest.Create (url);
+				request.BeginGetResponse (AssignTaskRequestCompleted, request);
+			} catch (WebException e) {
+				isBusy = false;
+				Console.WriteLine ("Exception - " + e.Message);
+				new UIAlertView ("Error", "Server Unavailable at this time.\nPlease try later.", null, "OK").Show ();
+			}
+
+
+		}
+
+
+		void AssignTaskRequestCompleted (IAsyncResult result)
+		{
+			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+			isBusy = false;
+			var request = result.AsyncState as HttpWebRequest;			
+			WebServiceResponseDTO dto;
+
+			try {
+				HttpWebResponse response = (HttpWebResponse)request.EndGetResponse (result);
+				Stream receiveStream = response.GetResponseStream ();
+				StreamReader readStream = new StreamReader (receiveStream, Encoding.UTF8);
+				string resp = readStream.ReadToEnd ();
+				Console.WriteLine ("## ASYNCResponse stream received.\n" + resp);
+				response.Close ();
+				readStream.Close ();
+
+				dto = (WebServiceResponseDTO)JsonConvert.DeserializeObject (resp, typeof(WebServiceResponseDTO));
+
+				end = DateTime.Now;	
+				Tools.SendElapsedTime (start, end, dto.activityID);
+
+				InvokeOnMainThread (delegate {
+					if (dto.responseCode == 0) {
+						if (dto.taskCreated) {
+							new UIAlertView ("Assign Task", "Task has been successfully assigned to " +
+							selectedUser.firstNames + " " + selectedUser.lastName, null, "OK").Show ();	
+							//navController.PopViewControllerAnimated (true);
+						} else {
+							new UIAlertView ("Assign Task Error", "Task has not been assigned", null, "OK").Show ();	
+						}
+					} else {
+						new UIAlertView ("Assign Task", dto.responseMessage, null, "OK").Show ();
+					}
+
+				}
+				);
+
+
+
+			} catch (Exception ex) {
+				Console.WriteLine ("### ERROR: " + ex.Message);
+				InvokeOnMainThread (delegate {
+					isBusy = false;
+					new UIAlertView ("Network Error", "Problem communicating with server.\nPlease try later or call GhostPractice Support", null, "Close").Show ();
+				}
+				);
+
 			}
 		}
 

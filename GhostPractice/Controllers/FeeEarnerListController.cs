@@ -17,13 +17,16 @@ namespace GhostPractice
 	public partial class FeeEarnerListController : UIViewController
 	{
 		static MatterSearchResultDTO matter;
+
 		public FeeEarnerListController (MatterSearchResultDTO m) : base ("FeeEarnerListController", null)
 		{
 			matter = m;
 		}
+
 		static NSString cellIdentifier = new NSString ("CellIdFEList");
 		static List<MobileUser> list;
 		DateTime start, end;
+
 		public override void DidReceiveMemoryWarning ()
 		{
 			// Releases the view if it doesn't have a superview.
@@ -31,15 +34,16 @@ namespace GhostPractice
 			
 			// Release any cached data, images, etc that aren't in use.
 		}
-		
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			barButtonClose.TintColor = ColorHelper.GetGPPurple ();
-			barButtonClose.Clicked += delegate {
-				this.NavigationController.PopViewControllerAnimated (true);
-			};
-			tableView.RowHeight = 50;
+			//barButtonClose.TintColor = ColorHelper.GetGPPurple ();
+			//barButtonClose.Clicked += delegate {
+			//	this.NavigationController.PopViewControllerAnimated (true);
+			//};
+			Title = "Fee Earners";
+			//tableView.RowHeight = 50;
 			getAsyncData ();
 		}
 
@@ -78,7 +82,7 @@ namespace GhostPractice
 		
 		//
 		// Invoked when we get the stream back from the twitter feed
-		// We parse the RSS feed and push the data into a 
+		// We parse the RSS feed and push the data into a
 		// table.
 		//
 		void DataDownloaded (IAsyncResult result)
@@ -131,17 +135,18 @@ namespace GhostPractice
 				
 			}
 		}
+
 		private class TableViewDelegate : UITableViewDelegate
 		{
 			private List<MobileUser> list;
 			private UIViewController controller;
-			
+
 			public TableViewDelegate (List<MobileUser> list, UIViewController controller)
 			{
 				this.list = list;
 				this.controller = controller;
 			}
-			
+
 			public override void RowSelected (
 				UITableView tableView, NSIndexPath indexPath)
 			{
@@ -149,6 +154,7 @@ namespace GhostPractice
 				FeeEarnerTaskController cont = new FeeEarnerTaskController (matter, list [indexPath.Row]);
 				controller.NavigationController.PushViewController (cont, true);
 			}
+
 			public override void AccessoryButtonTapped (UITableView tableView, NSIndexPath indexPath)
 			{
 				Console.WriteLine ("## Accessory tapped: " + list [indexPath.Row].firstNames);
@@ -156,37 +162,37 @@ namespace GhostPractice
 				controller.NavigationController.PushViewController (cont, true);
 			}
 		}
-		
+
 		private class TableViewDataSource : UITableViewDataSource
 		{
 			static NSString kCellIdentifier =
 				new NSString ("MyIdentifier");
 			private List<MobileUser> list;
-			
+
 			public TableViewDataSource (List<MobileUser> list)
 			{
 				this.list = list;
 			}
-			
+
 			public override int RowsInSection (
 				UITableView tableview, int section)
 			{
 				return list.Count;
 			}
-			
+
 			public override UITableViewCell GetCell (
 				UITableView tableView, NSIndexPath indexPath)
 			{
 				var cell = tableView.DequeueReusableCell (kCellIdentifier);
 				if (cell == null) {
 					cell = new UITableViewCell (UITableViewCellStyle.Subtitle, cellIdentifier);
-					cell.Accessory = UITableViewCellAccessory.DetailDisclosureButton;
+					//cell.Accessory = UITableViewCellAccessory.DetailDisclosureButton;
 				}
 				
 				//set up image find user image....
 				
 				UIImage img = UIImage.FromFile ("Images/user_library.png");
-				
+
 				cell.TextLabel.Text = list [indexPath.Row].firstNames + " " + list [indexPath.Row].lastName;
 				cell.ImageView.Image = img;
 				cell.DetailTextLabel.Text = list [indexPath.Row].userName;

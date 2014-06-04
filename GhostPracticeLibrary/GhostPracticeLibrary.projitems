@@ -81,4 +81,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Util\UIViewBordered.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\Zipper.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)SharedControllers\" />
+  </ItemGroup>
 </Project>

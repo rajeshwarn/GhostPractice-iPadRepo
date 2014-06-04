@@ -32,12 +32,12 @@ namespace GhostPractice
 			Console.WriteLine ("onPostingComplete");
 		}
 
-		public MatterDetailsDialog (MatterSearchResultDTO searchResult) : base (UITableViewStyle.Grouped, null)
+		public MatterDetailsDialog (MatterSearchResultDTO searchResult) : base (UITableViewStyle.Grouped, null, true)
 		{	
 			this.searchResult = searchResult;
-			this.NavigationItem.LeftBarButtonItem = new UIBarButtonItem (S.GetText (S.SEARCH), UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
-				NavigationController.PopViewControllerAnimated (true);
-			});
+			//this.NavigationItem.LeftBarButtonItem = new UIBarButtonItem (S.GetText (S.SEARCH), UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
+			//	NavigationController.PopViewControllerAnimated (true);
+			//});
 			this.NavigationItem.RightBarButtonItem = new UIBarButtonItem ("Reports", UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
 				var con = new ReportsCoordinatorDialog ();
 				NavigationController.PushViewController (con, true);

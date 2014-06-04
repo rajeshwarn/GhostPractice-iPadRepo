@@ -100,8 +100,7 @@ namespace GPMobilePad
 				new StyledStringElement ("Financial Status Report",
 				null,
 				UITableViewCellStyle.Subtitle) {
-				DetailColor = UIColor.Gray, 
-				Accessory = UITableViewCellAccessory.DetailDisclosureButton
+				DetailColor = UIColor.Gray
 			};
 			btnFinance.Tapped += delegate() {
 				CheckIfBusy (FINANCIAL_STATUS);
@@ -116,8 +115,7 @@ namespace GPMobilePad
 				new StyledStringElement ("Fee Target Progress Report",
 				null,
 				UITableViewCellStyle.Subtitle) {
-				DetailColor = UIColor.Gray,
-				Accessory = UITableViewCellAccessory.DetailDisclosureButton
+				DetailColor = UIColor.Gray
 			};
 
 			btnFeeTarget.Tapped += delegate() {				
@@ -134,8 +132,7 @@ namespace GPMobilePad
 				new StyledStringElement ("Matter Analysis Report",
 				null,
 				UITableViewCellStyle.Subtitle) {
-				DetailColor = UIColor.Gray,
-				Accessory = UITableViewCellAccessory.DetailDisclosureButton
+				DetailColor = UIColor.Gray
 			};
 			btnMatterAnalysis.Tapped += delegate() {
 				CheckIfBusy (MATTER_ANALYSIS);

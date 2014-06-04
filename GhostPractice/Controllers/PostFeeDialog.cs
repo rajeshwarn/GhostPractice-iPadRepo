@@ -36,7 +36,7 @@ namespace GhostPractice
 
 		}
 
-		public PostFeeDialog (MatterDTO matter, bool isUnbillable, MatterDetailsDialog detailsDialog) : base (UITableViewStyle.Grouped, null)
+		public PostFeeDialog (MatterDTO matter, bool isUnbillable, MatterDetailsDialog detailsDialog) : base (UITableViewStyle.Grouped, null, true)
 		{
 			this.matter = matter;
 			this.isUnbillable = isUnbillable;
@@ -409,19 +409,10 @@ namespace GhostPractice
 				CalculateAmount ();
 			};
 			
-			
-			var btnBack = new StyledStringElement ("Matter Details");
-			btnBack.Alignment = UITextAlignment.Center;
-			btnBack.Tapped += delegate() {
-				if (isBusy) {
-					return;
-				}
-				this.NavigationController.PopViewControllerAnimated (true);
-			};
+
 			
 			sec3.Add (btnCalculate);
 			sec3.Add (btnSend);
-			//sec3.Add (btnBack);
 			Root.Add (sec3);
 		}
 

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPMobilePad", "GPMobilePad\
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GhostPracticeLibrary", "GhostPracticeLibrary\GhostPracticeLibrary.shproj", "{CE8B2D02-5F4B-4732-8307-3D6F8514AA73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesterIPAD", "TesterIPAD\TesterIPAD.csproj", "{169ECD0C-B0F7-4BCB-8CE2-48604812E847}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -22,6 +24,24 @@ Global
 		DistributionKorbitec|iPhone = DistributionKorbitec|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.AppStoreKorbitec|iPhone.ActiveCfg = Release|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.AppStoreKorbitec|iPhone.Build.0 = Release|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Debug|iPhone.Build.0 = Debug|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Distribution|iPhone.ActiveCfg = Debug|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Distribution|iPhone.Build.0 = Debug|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.DistributionKorbitec|iPhone.ActiveCfg = Release|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.DistributionKorbitec|iPhone.Build.0 = Release|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Release|iPhone.ActiveCfg = Release|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Release|iPhone.Build.0 = Release|iPhone
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{169ECD0C-B0F7-4BCB-8CE2-48604812E847}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{3A11F43F-CB81-4377-A98E-EF61AC6C86FC}.AppStoreKorbitec|iPhone.ActiveCfg = AppStoreKorbitec|iPhone
 		{3A11F43F-CB81-4377-A98E-EF61AC6C86FC}.AppStoreKorbitec|iPhone.Build.0 = AppStoreKorbitec|iPhone
 		{3A11F43F-CB81-4377-A98E-EF61AC6C86FC}.Debug|iPhone.ActiveCfg = Debug|iPhone

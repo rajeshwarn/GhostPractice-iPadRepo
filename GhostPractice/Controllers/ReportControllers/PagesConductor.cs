@@ -40,7 +40,6 @@ namespace GhostPractice
 
 		public override void ViewWillAppear (bool animated)
 		{
-			//this.NavigationController.SetNavigationBarHidden(true,true); //-- hide the navigation bar
 			this.NavigationController.SetToolbarHidden (true, false); //-- show the bottom toolbar
 			base.ViewWillAppear (animated);
 		}
@@ -80,10 +79,7 @@ namespace GhostPractice
 			// Perform any additional setup after loading the view, typically from a nib.
 		}
 
-		/// <summary>
-		/// Runs when a dot on the pager is clicked. Scrolls the scroll view to the appropriate
-		/// page, based on which one was clicked
-		/// </summary>
+
 		protected void HandlePgrMainValueChanged (object sender, EventArgs e)
 		{
 			//---- it moves page by page. we scroll right to the next controller
@@ -92,10 +88,7 @@ namespace GhostPractice
 				true);
 		}
 
-		/// <summary>
-		/// Runs when the scroll view is scrolled. Updates the pager control so that it's
-		/// current, based on the page
-		/// </summary>
+
 		protected void HandleScrlMainScrolled (object sender, EventArgs e)
 		{
 			//---- calculate the page number

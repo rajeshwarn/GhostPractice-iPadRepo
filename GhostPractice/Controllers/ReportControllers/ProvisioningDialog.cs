@@ -25,7 +25,7 @@ namespace GhostPractice
 			Root = new RootElement ("GhostPractice Mobile");
 			var topSec = new Section ("Welcome");
 			topSec.Add (new StringElement ("Please enter activation code"));
-			activation = new EntryElement ("Code", "Activation Code", String.Empty); 
+			activation = new EntryElement ("Code", "Activation Code", "999998-zcrdbrkqwogh"); 
 			topSec.Add (activation);
 			var submit = new StringElement ("Send Code");
 			submit.Alignment = UITextAlignment.Center;
@@ -250,6 +250,7 @@ namespace GhostPractice
 				NSUserDefaults.StandardUserDefaults.RemoveObject ("email");
 				NSUserDefaults.StandardUserDefaults.RemoveObject ("deviceID");
 			} catch (Exception e) {
+				Console.WriteLine (e.ToString ());
 				//ignore - properties dont exist	
 			}
 		}

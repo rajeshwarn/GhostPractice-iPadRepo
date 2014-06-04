@@ -39,7 +39,7 @@ namespace GhostPractice
 			if (reportSource == null) {
 				reportSource = new ReportsDataSource ();
 			}
-			this.NavigationItem.RightBarButtonItem = new UIBarButtonItem ("Back", UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
+			this.NavigationItem.LeftBarButtonItem = new UIBarButtonItem ("Back", UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
 				this.NavigationController.PopViewControllerAnimated (true);
 			});
 			Root = new RootElement ("");

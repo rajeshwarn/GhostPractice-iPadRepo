@@ -36,7 +36,7 @@ namespace GPMobilePad
 		public UIPopoverController Popover { get; set; }
 
 		public MatterDetail (SplitController split, Finder finder)
-			: base (UITableViewStyle.Grouped, null)
+			: base (UITableViewStyle.Grouped, null, true)
 		{
 			this.split = split;
 			this.finder = finder;
@@ -176,11 +176,30 @@ namespace GPMobilePad
 				s += "App Version: " + NSBundle.MainBundle.InfoDictionary ["CFBundleVersion"] + "\n";
 				new UIAlertView ("User Information", s, null, "OK").Show ();
 			});
+			btnTask = new UIBarButtonItem ("Tasks", UIBarButtonItemStyle.Plain, delegate (object sender, EventArgs e) {
+				Console.WriteLine ("post task button clicked, width: " + View.Frame.Width + " height: " + View.Frame.Height);
+				if (isBusy) {
+					Busy ();
+				} else {
+					//set up popover with postTask
+					matter.id = searchResult.matterID;
+					var pn = new TaskDialog (searchResult, this);
+					pop = new UIPopoverController (pn);
+					pop.SetPopoverContentSize (new SizeF (500f, 900f), true);
+					if (View.Frame.Height > 900) {
+						pop.PresentFromRect (new RectangleF (0f, 40f, 500f, 900f), this.View, UIPopoverArrowDirection.Any, true);
+					} else {
+						pop.PresentFromRect (new RectangleF (0f, 20f, 500f, 700f), this.TableView, UIPopoverArrowDirection.Any, true);
+					}
 
-			btnReports.TintColor = UIColor.Black;
+				}
+
+			});
+
+			//btnReports.TintColor = UIColor.Black;
 			disableButtons ();
 
-			UIBarButtonItem[] btns = { btnAbout, btnReports, btnPostFee, btnPostUnbillable, btnPostNote };
+			UIBarButtonItem[] btns = { btnAbout, btnReports, btnTask, btnPostFee, btnPostUnbillable, btnPostNote };
 			this.NavigationItem.SetRightBarButtonItems (btns, true);
 
 		}
@@ -190,6 +209,7 @@ namespace GPMobilePad
 			btnPostFee.Enabled = false;
 			btnPostNote.Enabled = false;
 			btnPostUnbillable.Enabled = false;
+			btnTask.Enabled = false;
 		}
 
 		private void enableButtons ()
@@ -197,6 +217,7 @@ namespace GPMobilePad
 			btnPostFee.Enabled = true;
 			btnPostNote.Enabled = true;
 			btnPostUnbillable.Enabled = true;
+			btnTask.Enabled = true;
 		}
 
 		[Export ("splitViewController:willHideViewController:withBarButtonItem:forPopoverController:")]
@@ -385,7 +406,7 @@ namespace GPMobilePad
 		}
 
 		UIPopoverController masterPopoverController;
-		UIBarButtonItem btnReports, btnPostFee, btnPostUnbillable, btnPostNote, btnAbout;
+		UIBarButtonItem btnReports, btnPostFee, btnPostUnbillable, btnPostNote, btnAbout, btnTask;
 
 		public override bool ShouldAutorotate ()
 		{
@@ -399,5 +420,7 @@ namespace GPMobilePad
 			Console.WriteLine ("MatterDetail ShouldAuto, returning false: " + toInterfaceOrientation.ToString ());
 			return false;
 		}
+
+
 	}
 }

@@ -22,6 +22,7 @@ namespace GPMobilePad
 		DateTime start, end;
 		EntryElement activationCode;
 
+
 		public ProvisionDialog (SplitController split) : base (UITableViewStyle.Grouped, null)
 		{
 			this.split = split;

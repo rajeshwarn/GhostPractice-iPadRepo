@@ -19,12 +19,13 @@ namespace GhostPractice
 		MobileUser mobileUser;
 		DateTime start, end;
 		UINavigationController navController;
+
 		public FeeEarnerTaskController (MatterSearchResultDTO matter, MobileUser user) : base ("FeeEarnerTaskController", null)
 		{
 			this.matter = matter;
 			this.mobileUser = user;
 		}
-		
+
 		public override void DidReceiveMemoryWarning ()
 		{
 			// Releases the view if it doesn't have a superview.
@@ -32,50 +33,43 @@ namespace GhostPractice
 			
 			// Release any cached data, images, etc that aren't in use.
 		}
-		
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			navController = this.NavigationController;
-			this.feeEarnerName.Text = mobileUser.firstNames + " " + mobileUser.lastName;
-			UIImage m = UIImage.FromFile ("Images/user_library.png");
-			img.Image = m;
+			this.Title = mobileUser.firstNames + " " + mobileUser.lastName;
 
-			btnCancel.Clicked += delegate {
-				this.NavigationController.PopViewControllerAnimated (true);
-			};
 			btnAssignTask.TintColor = ColorHelper.GetGPPurple ();
 			btnAssignTask.Clicked += delegate {
-				if (taskDescription.Text == null || 
-				    taskDescription.Text.Trim().Length == 0) {
+				if (taskDescription.Text == null ||
+				    taskDescription.Text.Trim ().Length == 0) {
 					new UIAlertView ("Missing Data", "Please enter task description.", null, "OK").Show ();
 					return;
 				}
-				Console.WriteLine("taskDescription.Text = " + taskDescription.Text);
+				Console.WriteLine ("taskDescription.Text = " + taskDescription.Text);
 				if (isBusy) {
 					return;
 				}
 				var task = new TaskDTO ();
 				DateTime dt = datePicker.Date;
-				DateTime now = DateTime.Today;
+				DateTime now = DateTime.Now;
 				Console.WriteLine ("### Task Due Date picked: " + dt.ToLongDateString ());
 				Console.WriteLine ("### Today is: " + now.ToLongDateString ());
 
-				if (Tools.ConvertDateTimeToJavaMS (dt) < Tools.ConvertDateTimeToJavaMS (now)) {
-					new UIAlertView ("Incorrect Due Date", "Please select today or a future date.", null, "OK").Show ();
-					return;
+
+				task.dueDate = Tools.ConvertDateTimeToJavaMS (dt);
+				task.matterID = matter.matterID;
+				task.userID = mobileUser.userID;
+				task.taskDescription = taskDescription.Text;
+				if (switchNotify.On == true) {
+					task.notifyWhenComplete = true;
 				} else {
-					task.dueDate = Tools.ConvertDateTimeToJavaMS (dt);
-					task.matterID = matter.matterID;
-					task.userID = mobileUser.userID;
-					task.taskDescription = taskDescription.Text;
-					if (switchNotify.On == true) {
-						task.notifyWhenComplete = true;
-					} else {
-						task.notifyWhenComplete = false;
-					}
-					getAsyncData (task);
+					task.notifyWhenComplete = false;
 				}
+
+				getAsyncData (task);
+
 			};
 			taskDescription.ShouldReturn += delegate {
 				taskDescription.ResignFirstResponder ();
@@ -83,12 +77,13 @@ namespace GhostPractice
 			};
 			labelMatterName.Text = matter.matterName;
 			labelMatterName.TextColor = ColorHelper.GetGPPurple ();
-			labelMatterName.Font = UIFont.BoldSystemFontOfSize (16);
+			labelMatterName.Font = UIFont.BoldSystemFontOfSize (18);
 
-			labelDueDate.Font = UIFont.SystemFontOfSize (12);
-			labelDueDate.Alpha = 0;
+			//labelDueDate.Font = UIFont.SystemFontOfSize (12);
+			//labelDueDate.Alpha = 1;
 
 		}
+
 		bool isBusy;
 		//
 		// Asynchronous HTTP request
@@ -151,7 +146,7 @@ namespace GhostPractice
 					if (dto.responseCode == 0) {
 						if (dto.taskCreated) {
 							new UIAlertView ("Assign Task", "Task has been successfully assigned to " +
-								mobileUser.firstNames + " " + mobileUser.lastName, null, "OK").Show ();	
+							mobileUser.firstNames + " " + mobileUser.lastName, null, "OK").Show ();	
 							navController.PopViewControllerAnimated (true);
 						} else {
 							new UIAlertView ("Assign Task Error", "Task has not been assigned", null, "OK").Show ();	
@@ -175,7 +170,7 @@ namespace GhostPractice
 				
 			}
 		}
-		
+
 		public override void ViewDidUnload ()
 		{
 			base.ViewDidUnload ();
@@ -187,7 +182,7 @@ namespace GhostPractice
 			
 			ReleaseDesignerOutlets ();
 		}
-		
+
 		public override bool ShouldAutorotateToInterfaceOrientation (UIInterfaceOrientation toInterfaceOrientation)
 		{
 			// Return true for supported orientations

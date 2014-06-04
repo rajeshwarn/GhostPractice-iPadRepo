@@ -12,7 +12,7 @@ namespace GhostPractice
 	{
 		public Tools ()
 		{
-		}		
+		}
 		//public const string CONSOLE_URL = "http://10.0.0.239:8080/GhostPractice-war/ghost?json=";
 		//public const string CONSOLE_URL = "http://centos5.boha.za.com:8080/GhostPractice-war/ghost?json=";
 		public const string CONSOLE_URL = "http://gpmobile.ghostpractice.com:7180/GhostPractice-war/ghost?json=";
@@ -43,10 +43,10 @@ namespace GhostPractice
 
 		public static DateTime GetDate (int days)
 		{
-			DateTime dt = DateTime.Now.AddDays (- days); 	
+			DateTime dt = DateTime.Now.AddDays (-days); 	
 			return dt;
 		}
-		
+
 		private static double getElapsed (DateTime start, DateTime end)
 		{		
 			double d = ((double)ConvertDateTimeToJavaMS (end) - (double)ConvertDateTimeToJavaMS (start)) / 1000;
@@ -63,6 +63,9 @@ namespace GhostPractice
 		{
 			GhostRequestDTO cr = new GhostRequestDTO ();
 			string json, encodedJSON, url;
+			if (activityID > 0) {
+				return;
+			}
 				
 			cr.requestType = GhostRequestDTO.POST_DEVICE_ELAPSED_TIME;
 			cr.activityID = activityID;
@@ -77,7 +80,7 @@ namespace GhostPractice
 			request.BeginGetResponse (PlatformDownloaded, request);
 			
 		}
-		
+
 		static void  PlatformDownloaded (IAsyncResult result)
 		{
 			var request = result.AsyncState as HttpWebRequest;			

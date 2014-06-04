@@ -106,7 +106,7 @@
     <MtouchArch>ARMv7</MtouchArch>
     <IpaPackageName>
     </IpaPackageName>
-    <CodesignProvision>3E768505-34DC-40D1-BAE7-C87DA0DB7D54</CodesignProvision>
+    <CodesignProvision>3CCE6342-03F8-453D-A7F3-F5C69E84D247</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DistributionKorbitec|iPhone' ">
     <Optimize>true</Optimize>
@@ -158,6 +158,7 @@
     <Compile Include="ReportControllers\BohaPageViewController.cs" />
     <Compile Include="PadUtil\FinanceElement.cs" />
     <Compile Include="PadUtil\DeviceTypeUtil.cs" />
+    <Compile Include="Screens\TaskDialog.cs" />
   </ItemGroup>
   <Import Project="..\GhostPracticeLibrary\GhostPracticeLibrary.projitems" Label="Shared" Condition="Exists('..\GhostPracticeLibrary\GhostPracticeLibrary.projitems')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

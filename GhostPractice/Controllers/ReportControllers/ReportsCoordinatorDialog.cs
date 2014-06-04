@@ -25,11 +25,11 @@ namespace GhostPractice
 		public int reportType;
 		DateTime start, end, financeTime, feeTargetTime, matterAnalysisTime;
 
-		public ReportsCoordinatorDialog () : base (UITableViewStyle.Grouped, null)
+		public ReportsCoordinatorDialog () : base (UITableViewStyle.Grouped, null, true)
 		{
-			this.NavigationItem.RightBarButtonItem = new UIBarButtonItem ("Back", UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
-				NavigationController.PopViewControllerAnimated (true);
-			});
+			//this.NavigationItem.LeftBarButtonItem = new UIBarButtonItem ("Back", UIBarButtonItemStyle.Bordered, delegate(object sender, EventArgs e) {   
+			//	NavigationController.PopViewControllerAnimated (true);
+			//});
 			BuildInterface ();
 		}
 		//
@@ -57,8 +57,7 @@ namespace GhostPractice
 			new StyledStringElement ("Financial Status Report",
 				null,
 				UITableViewCellStyle.Subtitle) {
-				DetailColor = UIColor.Blue,
-				Accessory = UITableViewCellAccessory.DetailButton
+				DetailColor = UIColor.Blue
 			};
 			btnFinance.Tapped += delegate() {
 				CheckIfBusy (FINANCIAL_STATUS);
@@ -72,8 +71,7 @@ namespace GhostPractice
 			new StyledStringElement ("Fee Target Progress Report",
 				null,
 				UITableViewCellStyle.Subtitle) {
-				DetailColor = UIColor.Gray,
-				Accessory = UITableViewCellAccessory.DetailButton
+				DetailColor = UIColor.Gray
 			};
 			btnFeeTarget.Tapped += delegate() {				
 				CheckIfBusy (FEE_TARGET);
@@ -88,8 +86,7 @@ namespace GhostPractice
 			new StyledStringElement ("Matter Analysis Report",
 				null,
 				UITableViewCellStyle.Subtitle) {
-				DetailColor = UIColor.Gray,
-				Accessory = UITableViewCellAccessory.DetailButton
+				DetailColor = UIColor.Gray
 			};
 			btnMatterAnalysis.Tapped += delegate() {
 				CheckIfBusy (MATTER_ANALYSIS);
@@ -98,50 +95,11 @@ namespace GhostPractice
 				CheckIfBusy (MATTER_ANALYSIS);
 			};
 			getReportsSection.Add (btnMatterAnalysis);
-			//
-			//
-			var viewSection = new Section ("Navigate");
-			var vRep = new StyledStringElement ("View Loaded Reports");
-			vRep.TextColor = ColorHelper.GetGPPurple ();
-			vRep.Alignment = UITextAlignment.Center;
-			vRep.Tapped += delegate() {
-				//go to pager....
-				if (financeReport == null && feeTargetReport == null && matterAnalysisReport == null) {
-					new UIAlertView (
-						"Reports",
-						"No reports to view. Please request reports first",
-						null,
-						"OK"
-					).Show ();
-					return;
-				}
-				PagesConductor cont = new PagesConductor (
-					                      financeReport,
-					                      matterAnalysisReport,
-					                      feeTargetReport,
-					                      reportType, 1
-				                      );				
-				this.NavigationController.PushViewController (cont, true);
-			};
-			//viewSection.Add (vRep);
-			//
-			btnBackToMatterSearch = new StyledStringElement ("Back to Matters Search");
-			btnBackToMatterSearch.TextColor = ColorHelper.GetGPPurple ();
-			btnBackToMatterSearch.Alignment = UITextAlignment.Center;
-			btnBackToMatterSearch.Tapped += delegate() {
-				if (isBusy) {
-					new UIAlertView ("Busy", "Report request service is busy. Please wait until it completes.",
-						null, "OK").Show ();
-					return;
-				}
-				this.NavigationController.PopViewControllerAnimated (true);
-			};
-			viewSection.Add (btnBackToMatterSearch);
+
 			
 			Root.Add (getReportsSection);
 			Root.Add (new Section ("  "));
-			Root.Add (viewSection);
-			
+
 				
 		}
 
